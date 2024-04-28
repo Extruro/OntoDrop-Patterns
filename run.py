@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request, flash, session, redirect, url_for
 
-import source.download_ontology
-import source.infer_structures
 app = Flask(__name__)
 
 import os
@@ -10,10 +8,13 @@ from datetime import datetime
 import json
 import time
 
-from source import download_ontology
-import source.create_structure
-import source.identify_patterns
-import source.infer_types
+
+from source.infer_structures import infer_structures
+from source.download_ontology import download_ontologies
+from source.create_structure import create_structure
+from source.identify_patterns import identify_patterns
+from run import main
+
 
 @app.route("/")
 def index():
@@ -23,7 +24,6 @@ def index():
 @app.route("/<path:path>")
 def send_static(path):
     return render_template(path)
-
 
 
 @app.route("/api", methods=["GET", "POST"])
@@ -81,16 +81,16 @@ def api():
         pattern = type;
 
         if csv_path != '':
-            root = source.download_ontology.download_ontologies(csv_path, ontology_path, error_log)
+            root = download_ontologies(csv_path, ontology_path, error_log)
         
-        source.create_structure.create_structure(ontology_path, error_log, flatten, structure_csv_path, structure_type_path, structure_name_path );
-        source.infer_structures.infer_structures(inferred_type_path, inferred_blank_nodes_path, structure_type_path, structure_name_path);
+        create_structure(ontology_path, error_log, flatten, structure_csv_path, structure_type_path, structure_name_path );
+        infer_structures(inferred_type_path, inferred_blank_nodes_path, structure_type_path, structure_name_path);
 
         # Has the user specified that the patterns are going to be created from the name of the terms?
-        source.identify_patterns.identify_patterns(inferred_type_path, patterns_type_path);
-        source.identify_patterns.identify_patterns(inferred_blank_nodes_path, patterns_name_path);
+        identify_patterns(inferred_type_path, patterns_type_path);
+        identify_patterns(inferred_blank_nodes_path, patterns_name_path);
 
-        app.main(ontology_path, csv_path, output_path, pattern, flatten)
+        main(ontology_path, csv_path, output_path, pattern, flatten)
 
 
         # write output file in the tmp folder
