@@ -40,7 +40,7 @@ def api():
         # output file name 
         ttl_filename = filename[:-3] + "ttl"
 
-        # Temporal folder called input to store ontologies
+        # Temporal folder called input to store ontologies downloaded
         os.makedirs("data/input/ontos", exist_ok=True)
         ontology_path = os.path.join("data/input/ontos", filename)
 
@@ -48,20 +48,20 @@ def api():
         os.makedirs("data/input/csv", exist_ok=True)
         csv_path = os.path.join("data/input/csv", filename)
 
-        #Temporal folder to store zip (input)
-        os.makedirs("data/input/zip", exist_ok=True)
-        zip_path = os.path.join("data/input/zip", filename)
-
-        #Temporal folder to extract .zip
-        os.makedirs("data/input/extract", exist_ok=True)
-        extract_path = os.path.join("data/input/extract", filename)
-
-        os.makedirs("data/input/ontos", exist_ok=True)
-        ontos_folder = "data/input/ontos"  # Guardar la ruta base de las ontologías
-
         
-        # Store the ontologies
-        if filename.endswith('.zip'):      
+        
+        # Store the ontologies in ontology_path
+        if filename.endswith('.zip'):
+            #Temporal folder to store zip (input)
+            os.makedirs("data/input/zip", exist_ok=True)
+            zip_path = os.path.join("data/input/zip", filename)
+
+            #Temporal folder to extract .zip
+            os.makedirs("data/input/extract", exist_ok=True)
+            extract_path = os.path.join("data/input/extract", filename)
+
+            os.makedirs("data/input/ontos", exist_ok=True)
+            ontos_folder = "data/input/ontos"  # Guardar la ruta base de las ontologías      
             file.save(zip_path)
 
 
@@ -82,8 +82,7 @@ def api():
                 
            
 
-
-        if filename.endswith('.csv'):
+        if filename.endswith('.csv'):           
             file.save(csv_path)
            
 
@@ -115,10 +114,15 @@ def api():
         #xml_error_generated = True
         flatten = False
         pattern = type
-
-        if csv_path != '':
-            download_ontologies(csv_path, ontology_path, error_log_path)
         
+        ontology_path = "data/input/ontos"
+       
+        try:
+            if csv_path:
+                download_ontologies(csv_path, ontology_path, error_log_path)
+        except:
+            print("No descarga porque están en local")
+
         create_structure(ontology_path, error_log_path, flatten, structure_csv_path, structure_type_path, structure_name_path )
         infer_structures(inferred_type_path, inferred_blank_nodes_path, structure_type_path, structure_name_path)
 
@@ -127,9 +131,9 @@ def api():
         identify_patterns(inferred_blank_nodes_path, patterns_name_path)
         error_log.close()
 
-        return {'errors': error_log_path,
-                 "csv": structure_csv_path,
-                   "structure_type": structure_type_path,
+        return {"errors": error_log_path,
+                 'csv': structure_csv_path,
+                   'structure_type': structure_type_path,
                      'structure_name': structure_name_path,
                        'inferred_type': inferred_type_path,
                          'patterns_type': patterns_type_path,

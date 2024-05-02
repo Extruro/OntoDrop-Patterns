@@ -26,6 +26,7 @@ def load_otologies_dictionary(csv_path, error_log):
             ontologies[columns[0]] = columns[1].strip()
             # Read the next line
             line = ontology_csv.readline()
+            
         
         except:
             error_log.write(f'Error reading the line {line} of the csv. The line must has the following format: prefix;URI\n')
@@ -50,8 +51,7 @@ def download_ontology(ontology_path, error_log):
 
         # Has the get request been accepted?
         if req_status == 200 :
-
-            # Store ontology code locally
+            # Store ontology code locally           
             name = os.path.join(ontology_path, f'{ont_prefix}.rdf')
             name= f"{ontology_path}/{ont_prefix}.rdf"
             with open(name, mode = 'w', encoding = req.apparent_encoding) as f:
