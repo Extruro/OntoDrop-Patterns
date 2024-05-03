@@ -8,13 +8,15 @@ from datetime import datetime
 import json
 import time
 import zipfile
+import uuid
+import shutil
 from source.infer_structures import infer_structures
 from source.download_ontology import download_ontologies
 from source.create_structure import create_structure
 from source.identify_patterns import identify_patterns
 
 
-
+# Main page
 @app.route("/")
 def index():
     return render_template("index.html")
@@ -27,101 +29,111 @@ def send_static(path):
 
 @app.route("/api", methods=["GET", "POST"])
 def api():
+    # Generar un identificador único para esta sesión
+    session_id = str(uuid.uuid4())
+    
     if request.method == "POST":
         #inicio = time.time()
         file = request.files["data"]
         filename = file.filename
 
         if filename == "":
-            error = "No file choosen. Please choose a diagram."
+            error = "No file choosen. Please choose a .zip or a .csv file."
             flash(error)
             return redirect(url_for("index"))
 
         # output file name 
         ttl_filename = filename[:-3] + "ttl"
 
-        # Temporal folder called input to store ontologies downloaded
-        os.makedirs("data/input/ontos", exist_ok=True)
-        ontology_path = os.path.join("data/input/ontos", filename)
+        # Crear una carpeta única para esta sesión
+        os.makedirs("data/sessions", exist_ok=True)
+        session_folder = os.path.join("data/sessions", session_id)
 
-        #Temporal folder to store csv (input)
-        os.makedirs("data/input/csv", exist_ok=True)
-        csv_path = os.path.join("data/input/csv", filename)
+        # Carpeta input
+        os.makedirs("data/sessions/"+session_id+"/input", exist_ok=True)
+        input_path = os.path.join("data/sessions/"+session_id+"/input")
 
+        # Folder called output to store the ttl file (output)
+        os.makedirs("data/sessions/"+session_id+"/output", exist_ok=True)
+        output_path = os.path.join("data/sessions/"+session_id+"/output", ttl_filename)
+
+
+        # Folder to store ontologies downloaded by .csv or extracted from .zip
+        os.makedirs("data/sessions/"+session_id+"/input/ontos", exist_ok=True)
+        ontology_path = os.path.join("data/sessions/"+session_id+"/input/ontos", filename)
+
+        # Folder to store .csv 
+        os.makedirs("data/sessions/"+session_id+"/input/csv", exist_ok=True)
+        csv_path = os.path.join("data/sessions/"+session_id+"/input/csv", filename)
+       
         
-        
-        # Store the ontologies in ontology_path
+        # If the file type is .zip
         if filename.endswith('.zip'):
-            #Temporal folder to store zip (input)
-            os.makedirs("data/input/zip", exist_ok=True)
-            zip_path = os.path.join("data/input/zip", filename)
+            #Temporal folder to store .zip
+            os.makedirs("data/sessions/"+session_id+"/input/zip", exist_ok=True)
+            zip_path = os.path.join("data/sessions/"+session_id+"/input/zip", filename)
 
             #Temporal folder to extract .zip
-            os.makedirs("data/input/extract", exist_ok=True)
-            extract_path = os.path.join("data/input/extract", filename)
+            os.makedirs("data/sessions/"+session_id+"/input/extract", exist_ok=True)
+            extract_path = os.path.join("data/sessions/"+session_id+"/input/extract", filename)
 
-            os.makedirs("data/input/ontos", exist_ok=True)
-            ontos_folder = "data/input/ontos"  # Guardar la ruta base de las ontologías      
+            #Temporal folder to store ontologies
+            os.makedirs("data/sessions/"+session_id+"/input/ontos", exist_ok=True)
+            ontos_folder = "data/sessions/"+session_id+"/input/ontos"      
             file.save(zip_path)
 
 
-            # Extraer el contenido del archivo ZIP
+            # Extract the contents of the ZIP file
             with zipfile.ZipFile(zip_path, 'r') as zip_ref:
                 zip_ref.extractall(extract_path)
 
-            # Iterar sobre los archivos extraídos y moverlos a la carpeta deseada
+            # Iterate over the extracted files and move them to the folder
             for root, dirs, files in os.walk(extract_path):
                 for file in files:
                     file_path = os.path.join(root, file)
-                    # Mover solo los archivos (no directorios) a la carpeta de ontologías
+                    # Files only .rdf (not directories)
                     if file.endswith('.rdf'):
-                        # Aquí defines la ruta donde deseas mover los archivos
+                        # The path where the files are to be located
                         target_path   = os.path.join(ontos_folder, file)
                         os.rename(file_path, target_path )
                         ontology_path = ontos_folder
-                
-           
+            # Delete folder used to extract ontologies           
+            shutil.rmtree("data/sessions/"+session_id+"/input/extract")
 
+                
+        # If the file type is .csv   
         if filename.endswith('.csv'):           
             file.save(csv_path)
            
 
-
-        # Temporal folder called output to store the ttl file (output)
-        os.makedirs("data/output", exist_ok=True)
-        output_path = os.path.join("data/output", ttl_filename)
-
-
-        error_log_path = os.path.join("data/output", 'error_log.txt')
-        structure_csv_path = os.path.join("data/output", 'Structure.csv')
-        structure_type_path = os.path.join("data/output", 'Structure_term_type.txt')
-        structure_name_path = os.path.join("data/output", 'Structure_term_name.txt')
-        inferred_type_path = os.path.join("data/output", 'Structure_term_inferred_type.txt')
-        inferred_blank_nodes_path = os.path.join("data/output", 'Structure_term_inferred_blank_nodes.txt')
-        patterns_type_path = os.path.join("data/output", 'Patterns_type')
-        patterns_name_path = os.path.join("data/output", 'Patterns_name')
-    
-     
+        error_log_path = os.path.join("data/sessions/"+session_id+"/output", 'error_log.txt')
+        structure_csv_path = os.path.join("data/sessions/"+session_id+"/output", 'Structure.csv')
+        structure_type_path = os.path.join("data/sessions/"+session_id+"/output", 'Structure_term_type.txt')
+        structure_name_path = os.path.join("data/sessions/"+session_id+"/output", 'Structure_term_name.txt')
+        inferred_type_path = os.path.join("data/sessions/"+session_id+"/output", 'Structure_term_inferred_type.txt')
+        inferred_blank_nodes_path = os.path.join("data/sessions/"+session_id+"/output", 'Structure_term_inferred_blank_nodes.txt')
+        patterns_type_path = os.path.join("data/sessions/"+session_id+"/output", 'Patterns_type')
+        patterns_name_path = os.path.join("data/sessions/"+session_id+"/output", 'Patterns_name')    
         
         # Create a new file in which to write the logs 
         error_log = open(error_log_path , "w", encoding='utf-8')
         # Empty the file (in case the program has been run before)
         error_log.truncate()
-        
-        
-         # Cast string to boolean
+              
+        # Cast string to boolean
         #flatten = True if flatten_lists == 'yes' else False
         #xml_error_generated = True
         flatten = False
         pattern = type
         
-        ontology_path = "data/input/ontos"
+        ontology_path = "data/sessions/"+session_id+"/input/ontos"
        
+       # Calling functions
         try:
             if csv_path:
                 download_ontologies(csv_path, ontology_path, error_log_path)
         except:
-            print("No descarga porque están en local")
+            print("The ontologies have been inserted via .zip")
 
         create_structure(ontology_path, error_log_path, flatten, structure_csv_path, structure_type_path, structure_name_path )
         infer_structures(inferred_type_path, inferred_blank_nodes_path, structure_type_path, structure_name_path)
@@ -131,54 +143,13 @@ def api():
         identify_patterns(inferred_blank_nodes_path, patterns_name_path)
         error_log.close()
 
+        # Return results in .json
         return {"errors": error_log_path,
-                 'csv': structure_csv_path,
-                   'structure_type': structure_type_path,
-                     'structure_name': structure_name_path,
-                       'inferred_type': inferred_type_path,
-                         'patterns_type': patterns_type_path,
-                         'patterns_name': patterns_name_path}
-        
-
-        # try:
-        #     # Transforming the diagram
-        #     root = read_drawio_xml(input_path)
-        #     turtle_file_string, xml_file_string, new_namespaces, errors, warnings = transform_ontology(root)
-        # except:
-        #     return {'ttl_data': "", "errors": {'Server Error': {'message': 'Server error, review the input diagram'}}, 'new_namespaces': {}, 'xml_error_generated': False, 'xml_error_file': "", 'warnings': ""}
-
-        # try:
-        #     xml_error_file, xml_error_generated = generate_xml_error(input_path, errors, os.path.join("data/output", filename[:-3] + "xml"))
-        # except:
-        #     errors['Server Error'] = {'message': 'Server error, something wrong happened trying to generate the xml file with the errors'}
-        #     xml_error_generated = False
-        #     xml_error_file = ""
-        
-
-        # write output file in the tmp folder
-        #with open(output_path, "w") as file:
-        #    file.write(turtle_file_string)
-
-        # Eliminating keys that do not contain errors
-        #new_errors = {}
-        #for key, error in errors.items():
-        #    if len(error) > 0:
-        #        new_errors[key] = error
-        
-        # Eliminating keys that do not contain warnings
-        #new_warnings = {}
-        #for key, warning in warnings.items():
-        #    if len(warning) > 0:
-        #        new_warnings[key] = warning
-
-        #session["ttl_filename"] = ttl_filename
-
-        # store the results of the converter in the database
-        # user = User(date = datetime.now(), input = input_path, output = ttl_filepath, errors = errors)
-        # user.save()
-
-        #fin = time.time()
-        #print(fin-inicio)
-
-        
-
+                'csv': structure_csv_path,
+                'structure_type': structure_type_path,
+                'structure_name': structure_name_path,
+                'inferred_type': inferred_type_path,
+                'inferred_blank_nodes': inferred_blank_nodes_path,
+                'patterns_type': patterns_type_path,
+                'patterns_name': patterns_name_path}
+    
