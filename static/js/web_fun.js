@@ -4,13 +4,15 @@ const inputName = dragDropArea.querySelector('#drag-text');
 const submitButton = document.getElementById('submit');
 const downloadButton = document.getElementById('download');
 
-//Button to download an xml file which helps users to detect the errors in their diagrams
+//Button to download an xml file which helps users to detect the errors in their Ontologys
 const downloadButtonXmlErrorFile = document.getElementById('download-xml-errors');
 
+//Spinner loading
+const spinnerLoading = document.getElementById('loadingSpinner');
 
 const responseText = document.getElementById('response');
 const errorReport = document.getElementById('error-report');
-const warningReport = document.getElementById('warning-report');
+//const warningReport = document.getElementById('warning-report');
 
 //Warning accordions
 const restrictionsWItem = document.getElementById('restrictions-w-item');
@@ -82,7 +84,7 @@ const xmlErrors = document.getElementById('xml-errors');
 let response;
 let file;
 let loadFile = false;
-let loadTransformedDiagram = false;
+let loadTransformedOntology = false;
 let xmlErrorFile;
 let loadXmlErrorFile = false;
 
@@ -100,7 +102,7 @@ dragDropArea.addEventListener('dragenter', (e) => {
     responseText.style.display = 'none';
     inputName.style.display = 'block';
     dragDropArea.style.backgroundColor = 'white';
-    inputName.innerHTML = 'Drag and drop your diagram or click to choose your file';
+    inputName.innerHTML = 'Drag and drop your ontology or click to choose your file';
 });
 
 //Drag leave event handler
@@ -108,7 +110,7 @@ dragDropArea.addEventListener('dragenter', (e) => {
 dragDropArea.addEventListener('dragleave', (e) => {
     e.preventDefault();
     dragDropArea.style.backgroundColor = 'white';
-    inputName.innerHTML = 'Drag and drop your diagram or click to choose your file';
+    inputName.innerHTML = 'Drag and drop your ontology or click to choose your file';
 });
 
 //Drag over event handler
@@ -116,7 +118,7 @@ dragDropArea.addEventListener('dragleave', (e) => {
 dragDropArea.addEventListener('dragover', (e) => {
     e.preventDefault();
     dragDropArea.style.backgroundColor = '#ECECEC';
-    inputName.innerHTML = 'Release your diagram';
+    inputName.innerHTML = 'Release your ontology';
 });
 
 //Mouseover event handler
@@ -137,7 +139,7 @@ dragDropArea.addEventListener('click', (e)=>{
 input.addEventListener('change', (e) => {
     loadFile = false;
     responseText.style.display = 'none';
-    inputName.innerHTML = 'Drag and drop your diagram or click to choose your file';
+    inputName.innerHTML = 'Drag and drop your ontology or click to choose your file';
     inputName.style.display = 'block';
     checkFiles(input.files);
 });
@@ -147,7 +149,7 @@ input.addEventListener('change', (e) => {
 dragDropArea.addEventListener('drop', (e) => {
     e.preventDefault();
     dragDropArea.style.backgroundColor = 'white';
-    inputName.innerHTML = 'Drag and drop your diagram or click to choose your file';
+    inputName.innerHTML = 'Drag and drop your ontology or click to choose your file';
     checkFiles(e.dataTransfer.files);
 });
 
@@ -161,23 +163,13 @@ function checkFiles(files){
         processFile(files[0]);
     } else {
         //There is more than one file. Just the first file is processed
-        alert('Only the first diagram is going to be processed');
+        alert('Only the first ontology is going to be processed');
         processFile(files[0]);
     }
 }
 
 //Function to show the name of the ontology the user selected, check its extension
 //and load the file in memory
-/*function processFile(f){
-    if (f != undefined && f.type == 'text/xml'){
-        //File extension correct'
-        inputName.innerHTML = '<b>"' + f.name + '"</b>' + ' selected';
-        file = f;
-        loadFile = true;
-    } else {
-        alert('The extension of the diagram must be xml');
-    }
-}*/
 function processFile(f) {
     if (f != undefined) {
         // Check file extension
@@ -198,50 +190,58 @@ function processFile(f) {
 
 //Click event handler for the button 'submit'
 //If there is not a file loaded => warn the user
-//If there is a file loaded => transform the diagram
+//If there is a file loaded => transform the ontology
 submitButton.addEventListener('click', (e) => {
     //Submit
     if (loadFile){
         //Correct submit
         loadXmlErrorFile = false;
         loadFile = false;
-        inputName.innerHTML = 'Transforming ontology';
+        spinnerLoading.style.display = 'block';
+        inputName.innerHTML = 'Transforming ontology...';        
         transformOntology(file);
+        
+        
     } else {
         //Incorrect submit
-        alert('There is not a diagram selected');
+        alert('There is not a ontology selected');
     }
 });
 
 function transformOntology(file){
-    loadTransformedDiagram = false;
-    //const uri = 'https://chowlk.linkeddata.es/api';
+    loadTransformedOntology = false;
     const uri = 'http://localhost:5000/api';
     const xhr = new XMLHttpRequest();
     const fd = new FormData();
     xhr.open('POST', uri);
     xhr.onreadystatechange = function(){
+   
         if(xhr.readyState == 4 && xhr.status == 200){
-            //Diagram transformed
-            response = JSON.parse(xhr.responseText);
-            
+            //Ontology transformed
+            response = JSON.parse(xhr.responseText);        
             xmlErrors.style.display = 'none';
             newNamespaces.style.display = 'none';
             errorReport.style.display = 'none';
-            warningReport.style.display = 'none';
+            //warningReport.style.display = 'none';
             inputName.style.display = 'none';
             responseText.style.display = 'block';
-            responseText.innerText = response['ttl_data'];
-            loadTransformedDiagram = true;
+            spinnerLoading.style.display = 'none';
+            responseText.innerText = "SUCCESSFULLY COMPLETED"//response['csv'];
+            responseText.style.fontSize = "20px";  // Tamaño de fuente más grande
+            responseText.style.fontWeight = "bold"; // Texto en negrita
+            responseText.style.color = "green";     // Color verde para indicar éxito
+            responseText.style.textAlign = "center"; // Centrar el texto en el elemento
+            responseText.style.lineHeight = "250px"; // Ajustar la altura de línea verticalmente
+            loadTransformedOntology = true;
 
-            var errors_keys = Object.keys(response['errors']);
-            var warnings_keys = Object.keys(response['warnings']);
-            var namespaces_keys = Object.keys(response['new_namespaces']);
+            var errors_keys = Object.keys(response['errors']);   
+            //var warnings_keys = Object.keys(response['warnings']);
+            //var namespaces_keys = Object.keys(response['new_namespaces']);
 
             //xml file with highlight errors
-            loadXmlErrorFile = response['xml_error_generated'];
+            //loadXmlErrorFile = response['xml_error_generated'];
         
-            if (warnings_keys.length > 0){
+            /*if (warnings_keys.length > 0){
                 warningReport.style.display = 'block';
 
                 baseBody.innerHTML = '';
@@ -253,10 +253,10 @@ function transformOntology(file){
                 restrictionsWItem.style.display = 'none';
 
                 warnings_keys.forEach((key) => classifyWarning(key, response['warnings'][key]));
-            }
+            }*/
 
             if (errors_keys.length > 0){
-                //The diagram has error that is neccesary to show to the user
+                //The ontology has error that is neccesary to show to the user
                 errorReport.style.display = 'block';
                 if (loadXmlErrorFile){
                     xmlErrors.style.display = 'block';
@@ -301,7 +301,7 @@ function transformOntology(file){
                 errors_keys.forEach((key) => classifyError(key, response['errors'][key]));
             }
 
-            if (namespaces_keys.length > 0){
+            /*if (namespaces_keys.length > 0){
                 errorReport.style.display = 'block';
                 textNamespace.innerHTML = '';
                 newNamespaces.style.display = 'block';
@@ -318,7 +318,7 @@ function transformOntology(file){
                 }
 
                 textNamespace.appendChild(unorderedList);
-            }
+            }*/
         }    
     }
     fd.append('data', file);
@@ -327,7 +327,7 @@ function transformOntology(file){
 
 
 
-function classifyWarning(key, value){
+/*function classifyWarning(key, value){
 
     if (key == 'Restrictions'){
         showError(restrictionsWItem, restrictionsWBody, value);
@@ -338,7 +338,7 @@ function classifyWarning(key, value){
     else if (key == 'Ontology'){
         showError(ontologyUriItem, ontologyUriBody, value);
     }
-}
+}*/
 
 function classifyError(key, value){
     switch(key){
@@ -436,26 +436,50 @@ function showSimpleError(item, body, errors){
 }
 
 //Click event handler for the button 'download' in order to download the ttl file
-//If there is not a transform diagram loaded => warn the user
-//If there is a transform diagram loaded => download it
-downloadButton.addEventListener('click', ()=>{
-    if(loadTransformedDiagram){
-        downloadFile('ontology.ttl', response['ttl_data']);
-    } else{
-        alert('There is not loaded a transform diagram');
+//If there is not a transform ontology loaded => warn the user
+//If there is a transform ontology loaded => download it
+downloadButton.addEventListener('click', () => {
+    
+    if (loadTransformedOntology) {
+        var zipData = {
+            'Errors.txt': response['errors'],
+            'Structure.csv': response['structure_csv'],
+            'Structure_term_type.txt': response['structure_type'],
+            'Structure_term_name.txt': response['structure_name'],
+            'Structure_term_inferred_type.txt': response['inferred_type'],
+            'Structure_term_inferred_blank_nodes.txt': response['inferred_blank_nodes'],
+            'Patterns_type.txt': response['patterns_type_txt'],
+            'Patterns_name.txt': response['patterns_name_txt'],
+            'Patterns_type.csv': response['patterns_type_csv'],
+            'Patterns_name.csv': response['patterns_name_csv']
+        };
+        downloadZipFile('patterns.zip', zipData);
+    } else {
+        alert('There is not loaded a transform ontology');
     }
 });
 
-//Click event handler for the button 'download' in order to download the xml error file
-//If there is not a xml error file loaded => warn the user
-//If there is a xml error file loaded => download it
-downloadButtonXmlErrorFile.addEventListener('click', ()=>{
-    if(loadXmlErrorFile){
-        downloadFile('ontology.xml', response['xml_error_file']);
-    } else{
-        alert('There is not loaded an xml error file');
+
+// Function to download a ZIP file with multiple documents
+function downloadZipFile(filename, responses) {
+    // Create a new ZIP object
+    var zip = new JSZip();
+
+    // Add each response as a file to the ZIP
+    for (var key in responses) {
+        if (responses.hasOwnProperty(key)) {
+            zip.file(key, responses[key]);
+        }
     }
-});
+
+    // Generate the ZIP file asynchronously
+    zip.generateAsync({ type: "blob" }).then(function(content) {
+        // Save the ZIP file using FileSaver.js
+        saveAs(content, filename);
+    });
+}
+
+
 
 // Function to download a file
 function downloadFile(filename, text){
@@ -470,3 +494,16 @@ function downloadFile(filename, text){
 
     document.body.removeChild(element);
 }
+
+
+//Click event handler for the button 'download' in order to download the xml error file
+//If there is not a xml error file loaded => warn the user
+//If there is a xml error file loaded => download it
+downloadButtonXmlErrorFile.addEventListener('click', ()=>{
+    if(loadXmlErrorFile){
+        downloadFile('ontology.xml', response['xml_error_file']);
+    } else{
+        alert('There is not loaded an xml error file');
+    }
+});
+

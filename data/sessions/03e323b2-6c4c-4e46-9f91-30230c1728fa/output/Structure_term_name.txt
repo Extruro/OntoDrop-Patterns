@@ -1,0 +1,4726 @@
+
+Ontology: saref.rdf
+Structure: saref.rdf-1
+saref:Actuation
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Actuator
+  |  |  |owl:onProperty
+  |  |  |  |saref:madeBy
+
+Ontology: saref.rdf
+Structure: saref.rdf-2
+saref:Actuation
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minCardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:controls
+
+Ontology: saref.rdf
+Structure: saref.rdf-3
+saref:Actuator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minCardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:controls
+
+Ontology: saref.rdf
+Structure: saref.rdf-4
+saref:Appliance
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minCardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:isUsedFor
+
+Ontology: saref.rdf
+Structure: saref.rdf-5
+saref:Command
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Command
+  |  |  |owl:onProperty
+  |  |  |  |skos:narrower
+
+Ontology: saref.rdf
+Structure: saref.rdf-6
+saref:Command
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Command
+  |  |  |owl:onProperty
+  |  |  |  |skos:broader
+
+Ontology: saref.rdf
+Structure: saref.rdf-7
+saref:CommandExecution
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |owl:Class
+  |  |  |  |  |owl:unionOf
+  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |saref:Command
+  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |  |  |saref:CommandOfInterest
+  |  |  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |  |  |rdf:nil
+  |  |  |owl:onProperty
+  |  |  |  |saref:isExecutionOf
+
+Ontology: saref.rdf
+Structure: saref.rdf-8
+saref:CommandOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:isCommandOfInterestOf
+
+Ontology: saref.rdf
+Structure: saref.rdf-9
+saref:CommandOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:isCommandOfInterestOf
+
+Ontology: saref.rdf
+Structure: saref.rdf-10
+saref:Commodity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Commodity
+  |  |  |owl:onProperty
+  |  |  |  |skos:narrower
+
+Ontology: saref.rdf
+Structure: saref.rdf-11
+saref:Commodity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Commodity
+  |  |  |owl:onProperty
+  |  |  |  |skos:broader
+
+Ontology: saref.rdf
+Structure: saref.rdf-12
+saref:FeatureKind
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:FeatureKind
+  |  |  |owl:onProperty
+  |  |  |  |skos:broader
+
+Ontology: saref.rdf
+Structure: saref.rdf-13
+saref:FeatureKind
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:FeatureKind
+  |  |  |owl:onProperty
+  |  |  |  |saref:consistsOf
+
+Ontology: saref.rdf
+Structure: saref.rdf-14
+saref:FeatureKind
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:FeatureKind
+  |  |  |owl:onProperty
+  |  |  |  |skos:narrower
+
+Ontology: saref.rdf
+Structure: saref.rdf-15
+saref:FeatureOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:FeatureOfInterest
+  |  |  |owl:onProperty
+  |  |  |  |saref:consistsOf
+
+Ontology: saref.rdf
+Structure: saref.rdf-16
+saref:Function
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Function
+  |  |  |owl:onProperty
+  |  |  |  |skos:narrower
+
+Ontology: saref.rdf
+Structure: saref.rdf-17
+saref:Function
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Function
+  |  |  |owl:onProperty
+  |  |  |  |skos:broader
+
+Ontology: saref.rdf
+Structure: saref.rdf-18
+saref:FunctionOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:isFunctionOfInterestOf
+
+Ontology: saref.rdf
+Structure: saref.rdf-19
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:UnitOfMeasure
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredIn
+
+Ontology: saref.rdf
+Structure: saref.rdf-20
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasValue
+
+Ontology: saref.rdf
+Structure: saref.rdf-21
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:relatesToProperty
+
+Ontology: saref.rdf
+Structure: saref.rdf-22
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onClass
+  |  |  |  |saref:UnitOfMeasure
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredIn
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+
+Ontology: saref.rdf
+Structure: saref.rdf-23
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onClass
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:relatesToProperty
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+
+Ontology: saref.rdf
+Structure: saref.rdf-24
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:FeatureOfInterest
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasurementOf
+
+Ontology: saref.rdf
+Structure: saref.rdf-25
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:dateTime
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasTimestamp
+
+Ontology: saref.rdf
+Structure: saref.rdf-26
+saref:Meter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minCardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:observes
+
+Ontology: saref.rdf
+Structure: saref.rdf-27
+saref:Observation
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minCardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:observes
+
+Ontology: saref.rdf
+Structure: saref.rdf-28
+saref:Observation
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Sensor
+  |  |  |owl:onProperty
+  |  |  |  |saref:madeBy
+
+Ontology: saref.rdf
+Structure: saref.rdf-29
+saref:Operation
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onClass
+  |  |  |  |saref:CommandOfInterest
+  |  |  |owl:onProperty
+  |  |  |  |saref:represents
+
+Ontology: saref.rdf
+Structure: saref.rdf-30
+saref:Operation
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:isOperationOf
+
+Ontology: saref.rdf
+Structure: saref.rdf-31
+saref:Operation
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |owl:Class
+  |  |  |  |  |owl:unionOf
+  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |saref:Command
+  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |  |  |saref:CommandOfInterest
+  |  |  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |  |  |rdf:nil
+  |  |  |owl:onProperty
+  |  |  |  |saref:represents
+
+Ontology: saref.rdf
+Structure: saref.rdf-32
+saref:OperationExecution
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Operation
+  |  |  |owl:onProperty
+  |  |  |  |saref:isExecutionOf
+
+Ontology: saref.rdf
+Structure: saref.rdf-33
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |skos:narrower
+
+Ontology: saref.rdf
+Structure: saref.rdf-34
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |skos:broader
+
+Ontology: saref.rdf
+Structure: saref.rdf-35
+saref:PropertyOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:isPropertyOfInterestOf
+
+Ontology: saref.rdf
+Structure: saref.rdf-36
+saref:PropertyValue
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasValue
+
+Ontology: saref.rdf
+Structure: saref.rdf-37
+saref:PropertyValue
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxCardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredIn
+
+Ontology: saref.rdf
+Structure: saref.rdf-38
+saref:Sensor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minCardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:observes
+
+Ontology: saref.rdf
+Structure: saref.rdf-39
+saref:Service
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |owl:Class
+  |  |  |  |  |owl:unionOf
+  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |saref:Function
+  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |  |  |saref:FunctionOfInterest
+  |  |  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |  |  |rdf:nil
+  |  |  |owl:onProperty
+  |  |  |  |saref:represents
+
+Ontology: saref.rdf
+Structure: saref.rdf-40
+saref:Service
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onClass
+  |  |  |  |saref:FunctionOfInterest
+  |  |  |owl:onProperty
+  |  |  |  |saref:represents
+
+Ontology: saref.rdf
+Structure: saref.rdf-41
+saref:Service
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:isOfferedBy
+
+Ontology: saref.rdf
+Structure: saref.rdf-42
+saref:State
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:State
+  |  |  |owl:onProperty
+  |  |  |  |skos:narrower
+
+Ontology: saref.rdf
+Structure: saref.rdf-43
+saref:State
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:State
+  |  |  |owl:onProperty
+  |  |  |  |skos:broader
+
+Ontology: saref.rdf
+Structure: saref.rdf-44
+saref:StateOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:integer]
+  |  |  |owl:onProperty
+  |  |  |  |saref:isStateOfInterestOf
+
+Ontology: saref.rdf
+Structure: saref.rdf-45
+saref:Task
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Task
+  |  |  |owl:onProperty
+  |  |  |  |skos:narrower
+
+Ontology: saref.rdf
+Structure: saref.rdf-46
+saref:Task
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Task
+  |  |  |owl:onProperty
+  |  |  |  |skos:broader
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-1
+foaf:Agent
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |foaf:member
+  |  |  |owl:someValuesFrom
+  |  |  |  |foaf:Agent
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-2
+geo:Feature
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |geo:Geometry
+  |  |  |owl:onProperty
+  |  |  |  |geo:hasGeometry
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-3
+geo:SpatialObject
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |geo:Geometry
+  |  |  |owl:onProperty
+  |  |  |  |geo:hasGeometry
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-4
+geo:SpatialObject
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |wgs84:Point
+  |  |  |owl:onProperty
+  |  |  |  |wgs84:location
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-5
+geo:SpatialObject
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |geo:SpatialObject
+  |  |  |owl:onProperty
+  |  |  |  |geo:sfContains
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-6
+geo:SpatialObject
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |geo:SpatialObject
+  |  |  |owl:onProperty
+  |  |  |  |geo:sfWithin
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-7
+s4agri:Animal
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onDataRange
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasName
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-8
+s4agri:Animal
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:isLocatedIn
+  |  |  |owl:someValuesFrom
+  |  |  |  |geo:Feature
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-9
+s4agri:Animal
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onDataRange
+  |  |  |  |xsd:dateTime
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasBirthDate
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-10
+s4agri:Animal
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:isMemberOf
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4agri:AnimalGroup
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-11
+s4agri:Animal
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onClass
+  |  |  |  |s4agri:ID
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasID
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-12
+s4agri:Animal
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onDataRange
+  |  |  |  |xsd:dateTime
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasDeathDate
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-13
+s4agri:Animal
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |<http://purl.obolibrary.org/obo/TAXRANK_1000000>
+  |  |  |owl:someValuesFrom
+  |  |  |  |<http://purl.obolibrary.org/obo/TAXRANK_0000000>
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-14
+s4agri:AnimalGroup
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasMember
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4agri:Animal
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-15
+s4agri:AnimalGroup
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onDataRange
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasName
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-16
+s4agri:AnimalGroup
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:isLocatedIn
+  |  |  |owl:someValuesFrom
+  |  |  |  |geo:Feature
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-17
+s4agri:Building
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:contains
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4agri:BuildingSpace
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-18
+s4agri:Building
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasName
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-19
+s4agri:Crop
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |<http://purl.obolibrary.org/obo/TAXRANK_1000000>
+  |  |  |owl:someValuesFrom
+  |  |  |  |<http://purl.obolibrary.org/obo/TAXRANK_0000000>
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-20
+s4agri:Crop
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasHarvestDate
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:dateTime
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-21
+s4agri:Crop
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasPlantDate
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:dateTime
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-22
+s4agri:Deployment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasDeploymentPeriod
+  |  |  |owl:someValuesFrom
+  |  |  |  |time:TemporalEntity
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-23
+s4agri:Deployment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |ssn:deployedSystem
+  |  |  |owl:someValuesFrom
+  |  |  |  |ssn:System
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-24
+s4agri:Deployment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |ssn:deployedOnPlatform
+  |  |  |owl:someValuesFrom
+  |  |  |  |sosa:Platform
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-25
+s4agri:Deployment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:isDeployedAtSpace
+  |  |  |owl:someValuesFrom
+  |  |  |  |geo:SpatialObject
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-26
+s4agri:Farm
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:contains
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4agri:Parcel
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-27
+s4agri:Farm
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:contains
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4agri:Building
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-28
+s4agri:Farm
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasName
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-29
+s4agri:FarmHolding
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:managesFarm
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4agri:Farm
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-30
+s4agri:FarmHolding
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasName
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-31
+s4agri:Farmer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:managesFarm
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4agri:Farm
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-32
+s4agri:Farmer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasName
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-33
+s4agri:Parcel
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onDataRange
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:hasName
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-34
+s4agri:Parcel
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4agri:contains
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4agri:Crop
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-35
+saref:Command
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onClass
+  |  |  |  |saref:Function
+  |  |  |owl:onProperty
+  |  |  |  |saref:isCommandOf
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-36
+saref:Command
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasDescription
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-37
+saref:Command
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:State
+  |  |  |owl:onProperty
+  |  |  |  |saref:actsUpon
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-38
+saref:FeatureOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasProperty
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-39
+saref:FeatureOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasMeasurement
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-40
+saref:Function
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onClass
+  |  |  |  |saref:Command
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasCommand
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-41
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onClass
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:relatesToProperty
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-42
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onDataRange
+  |  |  |  |xsd:float
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasValue
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-43
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:relatesToProperty
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-44
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onClass
+  |  |  |  |saref:UnitOfMeasure
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredIn
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-45
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:dateTime
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasTimestamp
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-46
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:FeatureOfInterest
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasurementOf
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-47
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:cardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasValue
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-48
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:UnitOfMeasure
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredIn
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-49
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Device
+  |  |  |owl:onProperty
+  |  |  |  |saref:isControlledByDevice
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-50
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:FeatureOfInterest
+  |  |  |owl:onProperty
+  |  |  |  |saref:isPropertyOf
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-51
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Device
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredByDevice
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-52
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |saref:relatesToMeasurement
+
+Ontology: saref4agri.rdf
+Structure: saref4agri.rdf-53
+saref:Task
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:minQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onClass
+  |  |  |  |saref:Device
+  |  |  |owl:onProperty
+  |  |  |  |saref:isAccomplishedBy
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-1
+s4auto:AbsolutePosition
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |<http://www.w3.org/2003/01/geo/wgs84_pos#lat>
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:float
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-2
+s4auto:AbsolutePosition
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |<http://www.w3.org/2003/01/geo/wgs84_pos#alt>
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:float
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-3
+s4auto:AbsolutePosition
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |<http://www.w3.org/2003/01/geo/wgs84_pos#long>
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:float
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-4
+s4auto:AccelerationConfidence
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasConfidenceValue
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:float
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-5
+s4auto:Confidence
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasConfidenceValue
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:float
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-6
+s4auto:Confidence
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasConfidenceUnitOfMeasure
+  |  |  |owl:someValuesFrom
+  |  |  |  |saref:UnitOfMeasure
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-7
+s4auto:CriticalObject
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasLength
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Length
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-8
+s4auto:CriticalObject
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasShape
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Shape
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-9
+s4auto:CriticalObject
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasWidth
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Width
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-10
+s4auto:CriticalObject
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasHeight
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Height
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-11
+s4auto:CriticalObject
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasMovement
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Movement
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-12
+s4auto:ElectronicControlUnit
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:detectsPosition
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Position
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-13
+s4auto:ElectronicControlUnit
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |saref:measuresProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Heading
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-14
+s4auto:ElectronicControlUnit
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |saref:measuresProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Acceleration
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-15
+s4auto:ElectronicControlUnit
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |saref:measuresProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Speed
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-16
+s4auto:ElectronicControlUnit
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4syst:subSystemOf
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Vehicle
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-17
+s4auto:ElectronicControlUnit
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:usesMeasurement
+  |  |  |owl:someValuesFrom
+  |  |  |  |saref:Measurement
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-18
+s4auto:Identifier
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasIDValue
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:string
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-19
+s4auto:ParkingSpot
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasLength
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Length
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-20
+s4auto:ParkingSpot
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |geo:hasGeometry
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:ParkingSpotPoint
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-21
+s4auto:ParkingSpot
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasWidth
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Width
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-22
+s4auto:ParkingSpot
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasDescriptionName
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:string
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-23
+s4auto:ParkingSpot
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:maxQualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+  |  |  |owl:onClass
+  |  |  |  |s4auto:ParkingSpotState
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasParkingSpotState
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-24
+s4auto:ParkingSpot
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasIdentifier
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Identifier
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-25
+s4auto:ParkingSpot
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasHeight
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Height
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-26
+s4auto:ParkingSpot
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasOpeningTimeAvailability
+  |  |  |owl:someValuesFrom
+  |  |  |  |time:TemporalEntity
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-27
+s4auto:Platoon
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasRoute
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Route
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-28
+s4auto:Platoon
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasSize
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Size
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-29
+s4auto:Platoon
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasLength
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Length
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-30
+s4auto:Platoon
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasIdentifier
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Identifier
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-31
+s4auto:Platoon
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasPlatoonMember
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Vehicle
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-32
+s4auto:Platoon
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasDestinationEndPoint
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:EndPoint
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-33
+s4auto:Platoon
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasPlatoonState
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:PlatoonState
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-34
+s4auto:Platoon
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasMaxSize
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:int
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-35
+s4auto:PlatoonPosition
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasPlatoonIndex
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:int
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-36
+s4auto:Position
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasConfidence
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Confidence
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-37
+s4auto:RelativePosition
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasCoordinateZ
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:float
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-38
+s4auto:RelativePosition
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasCoordinateX
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:float
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-39
+s4auto:RelativePosition
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasCoordinateY
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:float
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-40
+s4auto:RoadEntity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:consistsOfEquipment
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:RoadSideEquipment
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-41
+s4auto:RoadEntity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasLength
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Length
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-42
+s4auto:RoadEntity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasMovement
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Movement
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-43
+s4auto:RoadEntity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasHeight
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Height
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-44
+s4auto:RoadEntity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasRelativePosition
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:RelativePosition
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-45
+s4auto:RoadEntity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:consistsOfObject
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:CriticalObject
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-46
+s4auto:RoadEntity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasWidth
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Width
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-47
+s4auto:RoadEntity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:consistsOfUser
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:VulnerableRoadUser
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-48
+s4auto:RoadEntity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasShape
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Shape
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-49
+s4auto:RoadEntity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:consistsOfEvent
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:NotifiedEvent
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-50
+s4auto:RoadEntity
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasAbsolutePosition
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:AbsolutePosition
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-51
+s4auto:RoadSideActuator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:usesMeasurement
+  |  |  |owl:someValuesFrom
+  |  |  |  |saref:Measurement
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-52
+s4auto:RoadSideSensor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:detectsPosition
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:AbsolutePosition
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-53
+s4auto:RoadSideSensor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |saref:measuresProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Speed
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-54
+s4auto:RoadSideSensor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |saref:measuresProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Length
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-55
+s4auto:RoadSideSensor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |saref:measuresProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Height
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-56
+s4auto:RoadSideSensor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |saref:measuresProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Heading
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-57
+s4auto:RoadSideSensor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |saref:measuresProperty
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Width
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-58
+s4auto:RoadSideSensor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:detectsPosition
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:RelativePosition
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-59
+s4auto:Route
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasDestinationEndPoint
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:EndPoint
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-60
+s4auto:Route
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasOrigin
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:StartPoint
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-61
+s4auto:Route
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:isCollectionOf
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:RoutePoint
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-62
+s4auto:SpeedConfidence
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasConfidenceValue
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:int
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-63
+s4auto:State
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasTimestamp
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:dateTime
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-64
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasAbsolutePosition
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:AbsolutePosition
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-65
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasWidth
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Width
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-66
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasBrakeCapacity
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:BrakeCapacity
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-67
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasDestinationEndPoint
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:EndPoint
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-68
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasEstimatedRendezvousLocation
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:RendezvousLocation
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-69
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasPlatoonRole
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:PlatoonRole
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-70
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasEnvironment
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:VehicleEnvironment
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-71
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasAutomationLevel
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:AutomationLevel
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-72
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasRoadTopologyPosition
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:RoadTopologyPosition
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-73
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:isMemberOfVehicleEnvironment
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:VehicleEnvironment
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-74
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasDestinationAddress
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Address
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-75
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasPlatoonVehicleState
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:PlatoonVehicleState
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-76
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasPlatoonPosition
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:PlatoonPosition
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-77
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasHeight
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Height
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-78
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasRelativePosition
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:RelativePosition
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-79
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasLength
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Length
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-80
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:isMemberOfPlatoon
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Platoon
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-81
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasParkingVehicleState
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:PlatoonVehicleState
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-82
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasVehicleRole
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:VehicleRole
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-83
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4syst:hasSubSystem
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:ElectronicControlUnit
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-84
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasIdentifier
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Identifier
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-85
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasRoute
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Route
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-86
+s4auto:Vehicle
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasEstimatedJoiningTime
+  |  |  |owl:someValuesFrom
+  |  |  |  |xsd:dateTime
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-87
+s4auto:VehicleEnvironment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:consistsOfVehicle
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Vehicle
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-88
+s4auto:VehicleEnvironment
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:consistsOfEntity
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:RoadEntity
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-89
+s4auto:VulnerableRoadUser
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasWidth
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Width
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-90
+s4auto:VulnerableRoadUser
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasLength
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Length
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-91
+s4auto:VulnerableRoadUser
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasHeight
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Height
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-92
+s4auto:VulnerableRoadUser
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasMovement
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Movement
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-93
+saref:Device
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |saref:makesMeasurement
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-94
+saref:Device
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:measuresProperty
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-95
+saref:Device
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:controlsProperty
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-96
+saref:FeatureOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasIdentifier
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Identifier
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-97
+saref:FeatureOfInterest
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasProperty
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-98
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:UnitOfMeasure
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredIn
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-99
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onClass
+  |  |  |  |saref:UnitOfMeasure
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredIn
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-100
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onDataRange
+  |  |  |  |xsd:float
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasValue
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-101
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |s4auto:hasConfidence
+  |  |  |owl:someValuesFrom
+  |  |  |  |s4auto:Confidence
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-102
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onClass
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:relatesToProperty
+  |  |  |owl:qualifiedCardinality
+  |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-103
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:onProperty
+  |  |  |  |saref:measurementMadeBy
+  |  |  |owl:someValuesFrom
+  |  |  |  |saref:Device
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-104
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:dateTime
+  |  |  |owl:onProperty
+  |  |  |  |saref:hasTimestamp
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-105
+saref:Measurement
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Property
+  |  |  |owl:onProperty
+  |  |  |  |saref:relatesToProperty
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-106
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Device
+  |  |  |owl:onProperty
+  |  |  |  |saref:isControlledByDevice
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-107
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Device
+  |  |  |owl:onProperty
+  |  |  |  |saref:isMeasuredByDevice
+
+Ontology: saref4auto.rdf
+Structure: saref4auto.rdf-108
+saref:Property
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |saref:relatesToMeasurement
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-1
+s4bldg:Actuator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:failPosition
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-2
+s4bldg:Actuator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:manualOverride
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-3
+s4bldg:AirToAirHeatRecovery
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:heatTransferTypeEnum
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-4
+s4bldg:AirToAirHeatRecovery
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:primaryAirFlowRateMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-5
+s4bldg:AirToAirHeatRecovery
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:hasDefrost
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-6
+s4bldg:AirToAirHeatRecovery
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:secondaryAirFlowRateMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-7
+s4bldg:AirToAirHeatRecovery
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:primaryAirFlowRateMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-8
+s4bldg:AirToAirHeatRecovery
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-9
+s4bldg:AirToAirHeatRecovery
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-10
+s4bldg:AirToAirHeatRecovery
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:secondaryAirFlowRateMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-11
+s4bldg:AudioVisualAppliance
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:mediaSource
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-12
+s4bldg:AudioVisualAppliance
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:audioVolume
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-13
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:heatTransferSurfaceArea
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-14
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalPartLoadRatio
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-15
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:pressureRating
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-16
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:waterInletTemperatureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-17
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalEnergyConsumption
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-18
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:energySource
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-19
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:isWaterStorageHeater
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-20
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:waterStorageCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-21
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:outletTemperatureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-22
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:waterInletTemperatureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-23
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:outletTemperatureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-24
+s4bldg:Boiler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operatingMode
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-25
+s4bldg:Building
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |s4bldg:BuildingSpace
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:hasSpace
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-26
+s4bldg:BuildingSpace
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |s4bldg:BuildingSpace
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:hasSpace
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-27
+s4bldg:BuildingSpace
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |owl:Class
+  |  |  |  |  |owl:unionOf
+  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |s4bldg:Building
+  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |  |  |s4bldg:BuildingSpace
+  |  |  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |  |  |rdf:nil
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:isSpaceOf
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-28
+s4bldg:BuildingSpace
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |s4bldg:PhysicalObject
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:contains
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-29
+s4bldg:Burner
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:energySource
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-30
+s4bldg:Chiller
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalEvaporatingTemmperature
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-31
+s4bldg:Chiller
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-32
+s4bldg:Chiller
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalHeatRejectionRate
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-33
+s4bldg:Chiller
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalPowerConsumption
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-34
+s4bldg:Chiller
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalCondensingTemperature
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-35
+s4bldg:Chiller
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalEfficiency
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-36
+s4bldg:Coil
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalSensibleCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-37
+s4bldg:Coil
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:placementType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-38
+s4bldg:Coil
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalLatentCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-39
+s4bldg:Coil
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalUa
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-40
+s4bldg:Coil
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:airFlowRateMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-41
+s4bldg:Coil
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-42
+s4bldg:Coil
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:airFlowRateMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-43
+s4bldg:Coil
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-44
+s4bldg:Compressor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:idealShaftPower
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-45
+s4bldg:Compressor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:compressorSpeed
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-46
+s4bldg:Compressor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:partLoadRatioMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-47
+s4bldg:Compressor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:idealCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-48
+s4bldg:Compressor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-49
+s4bldg:Compressor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:impellerDiameter
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-50
+s4bldg:Compressor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:powerSource
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-51
+s4bldg:Compressor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:partLoadRatioMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-52
+s4bldg:Compressor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:hasHotGasBypass
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-53
+s4bldg:Compressor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:refrigerantClass
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-54
+s4bldg:Condenser
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalHeatTransferArea
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-55
+s4bldg:Condenser
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:externalSurfaceArea
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-56
+s4bldg:Condenser
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:refrigerantClass
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-57
+s4bldg:Condenser
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalHeatTransferCoefficient
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-58
+s4bldg:Condenser
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:internalSurfaceArea
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-59
+s4bldg:Condenser
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:internalRefrigerantVolume
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-60
+s4bldg:Condenser
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:internalWaterVolume
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-61
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalHeatingCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-62
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:integratedLightingType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-63
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:waterFlowControlSystemType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-64
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalWaterFlowHeating
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-65
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalSorroundingTemperatureHeating
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-66
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:coilLength
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-67
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalSupplyWaterTemperatureHeating
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-68
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalSorroundingTemperatureCooling
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-69
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:isFreeHanging
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-70
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalReturnWaterTemperatureCooling
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-71
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalReturnWaterTemperatureHeating
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-72
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:waterPressureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-73
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalWaterFlowCooling
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-74
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalSupplyWaterTemperatureCooling
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-75
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalSorroundingHumidityCooling
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-76
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:pipeConnectionEnum
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-77
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:finishColor
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-78
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:coilWidth
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-79
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:waterPressureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-80
+s4bldg:CooledBeam
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalCoolingCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-81
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:ambientDesignDryBulbTemperature
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-82
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:ambientDesignWetBulbTemperature
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-83
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:circuitType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-84
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:capacityControl
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-85
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:liftElevationDifference
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-86
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:flowArrangement
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-87
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:controlStrategy
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-88
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:basinReserveVolume
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-89
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:waterRequirement
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-90
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-91
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-92
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:sprayType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-93
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:integer
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:numberOfCells
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-94
+s4bldg:CoolingTower
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-95
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:bladeAction
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-96
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-97
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:integer
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:numberOfBlades
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-98
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:bladeThickness
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-99
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:faceArea
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-100
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:leakageFullyClosed
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-101
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:bladeShape
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-102
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:frameDepth
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-103
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:airFlowRateMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-104
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:frameType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-105
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-106
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:workingPressureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-107
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operation
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-108
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:temperatureRating
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-109
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:frameThickness
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-110
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:orientation
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-111
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:openPressureDrop
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-112
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:closeOffRating
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-113
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:bladeEdge
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-114
+s4bldg:Damper
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalAirFlowRate
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-115
+s4bldg:DuctSilencer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:airFlowRateMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-116
+s4bldg:DuctSilencer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:hasExteriorInsulation
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-117
+s4bldg:DuctSilencer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:length
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-118
+s4bldg:DuctSilencer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-119
+s4bldg:DuctSilencer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:weight
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-120
+s4bldg:DuctSilencer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:hydraulicDiameter
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-121
+s4bldg:DuctSilencer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:workingPressureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-122
+s4bldg:DuctSilencer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:airFlowRateMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-123
+s4bldg:DuctSilencer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-124
+s4bldg:DuctSilencer
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:workingPressureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-125
+s4bldg:ElectricFlowStorageDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalSupplyVoltage
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-126
+s4bldg:ElectricFlowStorageDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalFrequency
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-127
+s4bldg:ElectricFlowStorageDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalSupplyVoltageMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-128
+s4bldg:ElectricGenerator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:electricGeneratorEfficiency
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-129
+s4bldg:ElectricGenerator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:startCurrentFactor
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-130
+s4bldg:ElectricGenerator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:powerOutputMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-131
+s4bldg:ElectricMotor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:electricMotorEfficiency
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-132
+s4bldg:ElectricMotor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:teTime
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-133
+s4bldg:ElectricMotor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:lockedRotorCurrent
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-134
+s4bldg:ElectricMotor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:startingTime
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-135
+s4bldg:ElectricMotor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:frameSize
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-136
+s4bldg:ElectricMotor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:hasPartWinding
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-137
+s4bldg:ElectricMotor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:motorEnclosureType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-138
+s4bldg:ElectricMotor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:powerOutputMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-139
+s4bldg:ElectricMotor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:isGuarded
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-140
+s4bldg:ElectricMotor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:startCurrentFactor
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-141
+s4bldg:Engine
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:energySource
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-142
+s4bldg:EvaporativeCooler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:waterRequirement
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-143
+s4bldg:EvaporativeCooler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-144
+s4bldg:EvaporativeCooler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:heatExchangeArea
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-145
+s4bldg:EvaporativeCooler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-146
+s4bldg:EvaporativeCooler
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:flowArrangement
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-147
+s4bldg:Evaporator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalHeatTransferCoefficient
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-148
+s4bldg:Evaporator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:internalWaterVolume
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-149
+s4bldg:Evaporator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:internalRefrigerantVolume
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-150
+s4bldg:Evaporator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalHeatTransferArea
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-151
+s4bldg:Evaporator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:internalSurfaceArea
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-152
+s4bldg:Evaporator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:externalSurfaceArea
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-153
+s4bldg:Evaporator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:refrigerantClass
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-154
+s4bldg:Evaporator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:evaporationMediumType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-155
+s4bldg:Evaporator
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:evaporationCoolant
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-156
+s4bldg:Fan
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalTotalPressure
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-157
+s4bldg:Fan
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalPowerRate
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-158
+s4bldg:Fan
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalRotationSpeed
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-159
+s4bldg:Fan
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:motorDriveType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-160
+s4bldg:Fan
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-161
+s4bldg:Fan
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationalRiterial
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-162
+s4bldg:Fan
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:capacityControlType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-163
+s4bldg:Fan
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-164
+s4bldg:Fan
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalStaticPressure
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-165
+s4bldg:Fan
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalAirFlowRate
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-166
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-167
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalParticleGeometricStandardDeviation
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-168
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:finalResistance
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-169
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:fluidFlowRateMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-170
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-171
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalMediaSurfaceVelocity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-172
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalFilterFaceVelocity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-173
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalFlowRate
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-174
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:fluidFlowRateMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-175
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalPressureDrop
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-176
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:weight
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-177
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:initialResistance
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-178
+s4bldg:Filter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalParticleGeometricMeanDiameter
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-179
+s4bldg:FlowMeter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:remoteReading
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-180
+s4bldg:FlowMeter
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:readOutType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-181
+s4bldg:HeatExchanger
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:arrangement
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-182
+s4bldg:Humidifier
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:application
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-183
+s4bldg:Humidifier
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:internalControl
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-184
+s4bldg:Humidifier
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:waterRequirement
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-185
+s4bldg:Humidifier
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:weight
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-186
+s4bldg:Humidifier
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalMoistureGain
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-187
+s4bldg:Humidifier
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalAirFlowRate
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-188
+s4bldg:Interceptor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalBodyLength
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-189
+s4bldg:Interceptor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:outletConnectionSize
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-190
+s4bldg:Interceptor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:inletConnectionSize
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-191
+s4bldg:Interceptor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalBodyWidth
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-192
+s4bldg:Interceptor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:coverLength
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-193
+s4bldg:Interceptor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalBodyDepth
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-194
+s4bldg:Interceptor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:ventilatingPipeSize
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-195
+s4bldg:Interceptor
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:coverWidth
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-196
+s4bldg:Lamp
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:lampMaintenanceFactor
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-197
+s4bldg:Lamp
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:spectrumMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-198
+s4bldg:Lamp
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:colorAppearance
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-199
+s4bldg:Lamp
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:integer
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:colorRenderingIndex
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-200
+s4bldg:Lamp
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:lampCompensationType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-201
+s4bldg:Lamp
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:colorTemperature
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-202
+s4bldg:Lamp
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:lightEmitterNominalPower
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-203
+s4bldg:Lamp
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:lampBallastType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-204
+s4bldg:Lamp
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:contributedLuminousFlux
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-205
+s4bldg:Lamp
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:spectrumMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-206
+s4bldg:Outlet
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:integer
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:numberOsSockets
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-207
+s4bldg:Outlet
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:isPluggableOutlet
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-208
+s4bldg:PhysicalObject
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |owl:Class
+  |  |  |  |  |owl:unionOf
+  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |s4bldg:BuildingSpace
+  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |rdf:List
+  |  |  |  |  |  |  |  |  |rdf:first
+  |  |  |  |  |  |  |  |  |  |s4bldg:PhysicalObject
+  |  |  |  |  |  |  |  |  |rdf:rest
+  |  |  |  |  |  |  |  |  |  |rdf:nil
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:isContainedIn
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-209
+s4bldg:PhysicalObject
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |s4bldg:PhysicalObject
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:contains
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-210
+s4bldg:ProtectiveDeviceTrippingUnit
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:limitingTerminalSize
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-211
+s4bldg:ProtectiveDeviceTrippingUnit
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:standard
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-212
+s4bldg:Pump
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:netPositiveSuctionHead
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-213
+s4bldg:Pump
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-214
+s4bldg:Pump
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:flowResistanceMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-215
+s4bldg:Pump
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nomminalRotationSpeed
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-216
+s4bldg:Pump
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:flowResistanceMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-217
+s4bldg:Pump
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:operationTemperatureMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-218
+s4bldg:Pump
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:pumpFlowRateMin
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-219
+s4bldg:Pump
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:pumpFlowRateMax
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-220
+s4bldg:Pump
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:connectionSize
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-221
+s4bldg:ShadingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:isExternal
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-222
+s4bldg:ShadingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:shadingDeviceType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-223
+s4bldg:ShadingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:mechanicalOperated
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-224
+s4bldg:ShadingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:solarTransmittance
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-225
+s4bldg:ShadingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:visibleLightTransmittance
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-226
+s4bldg:ShadingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:roughness
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-227
+s4bldg:ShadingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:visibleLightReflectance
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-228
+s4bldg:ShadingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:solarReflectance
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-229
+s4bldg:ShadingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:thermalTransmittance
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-230
+s4bldg:SpaceHeater
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:energySource
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-231
+s4bldg:SpaceHeater
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:temperatureClassification
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-232
+s4bldg:SpaceHeater
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:integer
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:numberOfSections
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-233
+s4bldg:SpaceHeater
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:heatTransferDimension
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-234
+s4bldg:SpaceHeater
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:outputCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-235
+s4bldg:SpaceHeater
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:thermalEfficiency
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-236
+s4bldg:SpaceHeater
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:bodyMass
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-237
+s4bldg:SpaceHeater
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:placementType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-238
+s4bldg:SpaceHeater
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:thermalMassHeatCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-239
+s4bldg:SpaceHeater
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:integer
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:numberOfPanels
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-240
+s4bldg:SpaceHeater
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:heatTransferMedium
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-241
+s4bldg:SwitchingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:isIlluminated
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-242
+s4bldg:SwitchingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:switchFunction
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-243
+s4bldg:SwitchingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:integer
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:numberOfGangs
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-244
+s4bldg:SwitchingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:boolean
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:hasLock
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-245
+s4bldg:SwitchingDevice
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:legend
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-246
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:patternType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-247
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:firstCurvatureRadius
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-248
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:endShapeType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-249
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalDepth
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-250
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalLengthOrDiameter
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-251
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:storageType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-252
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:effectiveCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-253
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:secondCurvatureRadius
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-254
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |xsd:string
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:accessType
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-255
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalWidthOrDiameter
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-256
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction
+  |  |  |owl:allValuesFrom
+  |  |  |  |saref:Measurement
+  |  |  |owl:onProperty
+  |  |  |  |s4bldg:nominalVolumetricCapacity
+
+Ontology: saref4bldg.rdf
+Structure: saref4bldg.rdf-257
+s4bldg:Tank
+  |rdfs:subClassOf
+  |  |owl:Restriction

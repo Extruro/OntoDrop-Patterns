@@ -8,8 +8,10 @@ from datetime import datetime
 import json
 import time
 import zipfile
+from flask import jsonify
 import uuid
 import shutil
+import csv
 from source.infer_structures import infer_structures
 from source.download_ontology import download_ontologies
 from source.create_structure import create_structure
@@ -113,7 +115,8 @@ def api():
         inferred_type_path = os.path.join("data/sessions/"+session_id+"/output", 'Structure_term_inferred_type.txt')
         inferred_blank_nodes_path = os.path.join("data/sessions/"+session_id+"/output", 'Structure_term_inferred_blank_nodes.txt')
         patterns_type_path = os.path.join("data/sessions/"+session_id+"/output", 'Patterns_type')
-        patterns_name_path = os.path.join("data/sessions/"+session_id+"/output", 'Patterns_name')    
+        patterns_name_path = os.path.join("data/sessions/"+session_id+"/output", 'Patterns_name') 
+          
         
         # Create a new file in which to write the logs 
         error_log = open(error_log_path , "w", encoding='utf-8')
@@ -143,13 +146,42 @@ def api():
         identify_patterns(inferred_blank_nodes_path, patterns_name_path)
         error_log.close()
 
-        # Return results in .json
-        return {"errors": error_log_path,
-                'csv': structure_csv_path,
-                'structure_type': structure_type_path,
-                'structure_name': structure_name_path,
-                'inferred_type': inferred_type_path,
-                'inferred_blank_nodes': inferred_blank_nodes_path,
-                'patterns_type': patterns_type_path,
-                'patterns_name': patterns_name_path}
+        patterns_type_txt_path = os.path.join("data/sessions/"+session_id+"/output", 'Patterns_type.txt')
+        patterns_name_txt_path = os.path.join("data/sessions/"+session_id+"/output", 'Patterns_name.txt') 
+        patterns_type_csv_path = os.path.join("data/sessions/"+session_id+"/output", 'Patterns_type.csv')
+        patterns_name_csv_path = os.path.join("data/sessions/"+session_id+"/output", 'Patterns_name.csv')
+   
+
+        files_dict = {
+            'errors': error_log_path,
+            'structure_csv': structure_csv_path,
+            'structure_type': structure_type_path,
+            'structure_name': structure_name_path,
+            'inferred_type': inferred_type_path,
+            'inferred_blank_nodes': inferred_blank_nodes_path,
+            'patterns_type_txt': patterns_type_txt_path,
+            'patterns_name_txt': patterns_name_txt_path,
+            'patterns_type_csv': patterns_type_csv_path,
+            'patterns_name_csv': patterns_name_csv_path,
+
+        }
+        # Crear un nuevo diccionario para almacenar el contenido de los archivos
+        file_contents = {}
+
+        # Leer el contenido de cada archivo y guardarlos en el diccionario
+        for key, path in files_dict.items():
+            try:
+                with open(path, 'r', encoding='utf-8') as file:                   
+                    # Para otros archivos de texto, leer el contenido como una cadena
+                    file_contents[key] = file.read()
+            except Exception as e:
+                print(f"Error reading file '{path}': {e}")
+
+        # Combinar el diccionario de rutas de archivos con el diccionario de contenidos de archivos
+        files_dict_with_contents = {**files_dict, **file_contents}
+
+        # Devolver el diccionario combinado como un objeto JSON
+        return jsonify(files_dict_with_contents)
+       
+
     
