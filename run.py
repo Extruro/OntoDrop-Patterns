@@ -37,7 +37,11 @@ def api():
     if request.method == "POST":
         #inicio = time.time()
         file = request.files["data"]
+        patterns = request.form["patterns"]
+        flatten = request.form["flatten"]    
         filename = file.filename
+        print(flatten)
+        print(patterns)
 
         if filename == "":
             error = "No file choosen. Please choose a .zip or a .csv file."
@@ -122,12 +126,15 @@ def api():
         error_log = open(error_log_path , "w", encoding='utf-8')
         # Empty the file (in case the program has been run before)
         error_log.truncate()
+
+
+        
               
         # Cast string to boolean
         #flatten = True if flatten_lists == 'yes' else False
         #xml_error_generated = True
-        flatten = False
-        pattern = type
+        #flatten = False
+        #pattern = type
         
         ontology_path = "data/sessions/"+session_id+"/input/ontos"
        

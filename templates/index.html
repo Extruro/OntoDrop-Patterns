@@ -16,6 +16,11 @@
 </head>
 <body>
 
+    <a href="#top" class="btn btn-light position-fixed" style="bottom: 20px; right: 20px;">
+        <i class="bi bi-arrow-up"></i>
+    </a>
+    <div id="top"></div>
+
     <!--Navbar-->
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
@@ -29,7 +34,10 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-auto fw-bold" style="font-size: 18px;">
                         <li class="nav-item">
-                            <a class="nav-link active" href="howtouse.html">How to use?</a>
+                            <a class="nav-link active" href="index.html">App</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="howtouse.html">How to use?</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="examples.html">Examples</a>
@@ -103,18 +111,28 @@
 
 
     <!--Service-->
-    <section class="container" >
-        <div class="row justify-content-center" style="margin-top: 20px;">
-            
-                <!--<div class="col-lg-6 pt-2">
-                    <h4>How to use it</h4>
-                    <video class="w-100" controls>
+    <section class="content pt-2 px-5" style="margin-top: 30px; margin-bottom: 30px;">
+        <div class="container">
+            <div class="row pb-5">
+                <div class="col-lg-6 pt-2">
+                    <h4 class="mb-4">Steps to follow</h4>
+                    <!--<video class="w-100" controls>
                         <source src="static/resources/getting-started.mp4" type="video/mp4">
                         Your browser does not support HTML video.
-                    </video>
-                </div> -->
+                    </video>-->
+                    <ol class="instructions">
+                        <li>Prepare the ontology or set of ontologies you want to transform.</li>
+                        <li>They must be inside a <strong>.zip</strong> file or in <strong>.csv</strong> if you want to download them.</li>
+                        <li>Attach only one file with the ontology(ies) by dragging and dropping or clicking on the service box.</li>
+                        <li>Once attached, the file name appears in the box. You can now click on <em>"Submit"</em>.</li>
+                        <li>Wait until <strong><em>"SUCCESSFULLY COMPLETED"</em></strong> appears.</li>
+                        <li>Now you can download the patterns by clicking on the "Download Pattern" button. </li>
+                        <li>A .zip file with the results will be downloaded.</li>
+                        <li>If you need more information about using the tool, click <u><a href="howtouse.html">here.</a></u></li>
+                    </ol>
+                </div> 
 
-                <div class="col-lg-8 pt-2 text-dark text-center">
+                <div class="col-lg-6 pt-2 text-center">
                     <h4 class="mb-4">SERVICE</h4>
                     <div class="drop-area" id="drag-drop-area">
                         <p class="lead text-dark drag-text" id="drag-text">Drag and drop your ontology or click to choose your file</p>
@@ -123,8 +141,6 @@
                         </i>                        
                         <div id="response" style="display: none;"></div>
                         <input type="file" id="fileElem" style="display: none;">
-                        
-                          
 
                     </div>
                     <div class="d-flex justify-content-between">
@@ -132,12 +148,41 @@
                         <button class="btn mt-2 drag-button" id="download">Download Pattern</button>
                     </div>
 
-
                 </div>
-            
+            </div>
+
         </div>
-        
     </section>
+
+   
+    
+
+    
+    
+
+    <!-- Ventana modal -->
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Choose Options</h2>
+            <label for="patterns">Patterns:</label>
+            <select id="patterns">
+                <option value="type">Type</option>
+                <option value="name">Name</option>
+                <option value="both">Both</option>
+            </select>
+            <br>
+            <label for="flatten">Flatten:</label>
+            <select id="flatten">
+                <option value="no">No</option>
+                <option value="yes">Yes</option>               
+            </select>
+            <br>
+            <button id="modal-submit">Done</button>
+        </div>
+    </div>
+    
+
 
     <!--Descriptions about web-->
     <section class="row">

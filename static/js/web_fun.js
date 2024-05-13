@@ -1,6 +1,7 @@
 const dragDropArea = document.getElementById('drag-drop-area');
 const input = dragDropArea.querySelector('#fileElem');
 const inputName = dragDropArea.querySelector('#drag-text');
+const closeModal = document.querySelector('.close');
 const submitButton = document.getElementById('submit');
 const downloadButton = document.getElementById('download');
 
@@ -21,6 +22,7 @@ const restrictionsWBody = document.getElementById('restrictions-w-body');
 //Error accordions
 const conceptsItem = document.getElementById('concepts-item');
 const conceptsBody = document.getElementById('concepts-body');
+
 
 const arrowsItem = document.getElementById('arrows-item');
 const arrowsBody = document.getElementById('arrows-body');
@@ -81,17 +83,21 @@ const textNamespace = document.getElementById('textNamespaces');
 
 const xmlErrors = document.getElementById('xml-errors');
 
+// Obtener la ventana modal
+const modal = document.getElementById("myModal");
+// Obtener el botón que abre la ventana modal
+const btn = document.getElementById("drag-drop-area");
+// Obtener el botón "Done"
+const modalSubmit = document.getElementById("modal-submit");
+
 let response;
 let file;
 let loadFile = false;
 let loadTransformedOntology = false;
 let xmlErrorFile;
 let loadXmlErrorFile = false;
-
-
-
-
-
+var patterns = "type";
+var flatten = "no";
 
 //Drag enter event handler
 //If the drag file enter the box => the box color is white and
@@ -121,12 +127,7 @@ dragDropArea.addEventListener('dragover', (e) => {
     inputName.innerHTML = 'Release your ontology';
 });
 
-//Mouseover event handler
-//While the mouse is on the box => the mouse pointer change in
-//order to indicate to the user that they can click the box
-dragDropArea.addEventListener('mouseover', ()=>{
-    dragDropArea.style.cursor = 'pointer';
-});
+
 
 //Click event handler
 //If the user click on the box => the user can select a local file to upload
@@ -158,9 +159,11 @@ function checkFiles(files){
     if (files.length === undefined) {
         //There is just one file
         processFile(files);
+        modal.style.display = "block";
     } else if (files.length === 1) {
         //There is just one file
         processFile(files[0]);
+        modal.style.display = "block";
     } else {
         //There is more than one file. Just the first file is processed
         alert('Only the first ontology is going to be processed');
@@ -199,7 +202,7 @@ submitButton.addEventListener('click', (e) => {
         loadFile = false;
         spinnerLoading.style.display = 'block';
         inputName.innerHTML = 'Transforming ontology...';        
-        transformOntology(file);
+        transformOntology(file, patterns, flatten);
         
         
     } else {
@@ -208,13 +211,14 @@ submitButton.addEventListener('click', (e) => {
     }
 });
 
-function transformOntology(file){
+function transformOntology(file, patterns, flatten){
     loadTransformedOntology = false;
     const uri = 'http://localhost:5000/api';
     const xhr = new XMLHttpRequest();
     const fd = new FormData();
     xhr.open('POST', uri);
     xhr.onreadystatechange = function(){
+        
    
         if(xhr.readyState == 4 && xhr.status == 200){
             //Ontology transformed
@@ -322,6 +326,8 @@ function transformOntology(file){
         }    
     }
     fd.append('data', file);
+    fd.append('patterns', patterns)
+    fd.append('flatten', flatten)
     xhr.send(fd);
 }
 
@@ -480,7 +486,6 @@ function downloadZipFile(filename, responses) {
 }
 
 
-
 // Function to download a file
 function downloadFile(filename, text){
     var element = document.createElement('a');
@@ -506,4 +511,41 @@ downloadButtonXmlErrorFile.addEventListener('click', ()=>{
         alert('There is not loaded an xml error file');
     }
 });
+
+
+// Cuando el usuario haga clic en el botón, abrir la ventana modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+
+// Asignar un evento de clic al botón "Done"
+modalSubmit.addEventListener('click', (e) => {
+    console.log("Sending values to server...");
+    patterns = document.getElementById("patterns").value;
+    flatten = document.getElementById("flatten").value;
+    modal.style.display = "none";
+
+    // Verificar si los campos están vacíos y ajustar los valores default
+    if (patterns.trim() === "") {
+         patterns = "type";
+     }
+     if (flatten.trim() === "") {
+         flatten = "no";
+     }
+
+});
+
+// Agregar un evento de clic al elemento de cierre
+closeModal.addEventListener('click', function() {
+    // Mostrar la ventana de advertencia
+    if (confirm("If you close the window without saving any values, the default values (patterns= type, flatten=no) will be set automatically.")) {
+        // Si el usuario confirma, ocultar la ventana modal
+        modal.style.display = "none";
+    }
+});
+
+
+
+
 
