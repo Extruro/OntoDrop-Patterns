@@ -272,9 +272,14 @@ div.img span{
     margin-bottom: 10px; /* Espacio entre elementos de lista */
 }
 
-.divider {
-    border-top: 10px solid hsl(0, 0%, 0%); /* Cambia el color de la línea según tu preferencia */
-    margin: 20px 0; /* Ajusta el espacio entre el encabezado y el texto de introducción */
+.step-row {
+    border-bottom: 5px solid #ffffff; /* Establece el grosor y color del borde */
+    margin-bottom: 20px; /* Agrega un margen inferior entre las filas */
+}
+
+.img-border {
+    border: 2px solid #ffffff; /* Establece un borde blanco de 2 píxeles */
+    border-radius: 5px; /* Agrega esquinas redondeadas al borde */
 }
 
 
