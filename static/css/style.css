@@ -117,8 +117,12 @@
 
 
 .btn {
-    background-color: blue;
+    /*background-color: blue;*/
+    background-color: #808080;
     color: white;
+    cursor: not-allowed; /* Cursor cuando está deshabilitado */
+    text-decoration: none;
+    display: inline-block;
 }
 
 .btn:hover {
@@ -246,10 +250,11 @@ div.img span{
     background-color: #4CAF50; /* Color de fondo verde */
     color: white; /* Texto en color blanco */
     padding: 10px 20px; /* Espaciado interno del botón */
-    border: none; /* Sin borde */
+    border: 2px solid black; /* Borde negro */
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar por encima */
     transition: background-color 0.3s; /* Transición suave del color de fondo */
+    margin-bottom: 4px; /* Margen inferior de 5px */
 }
 
 /* Cambia el color de fondo del botón al pasar el cursor por encima */
@@ -261,6 +266,29 @@ div.img span{
 #modal-submit:active {
     background-color: #36793e; /* Color de fondo verde más oscuro */
 }
+
+/* Estilo para el botón "Volver atrás" */
+#go-back {
+    background-color: #e53935; /* Color de fondo rojo */
+    color: white; /* Texto en color blanco */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    border: 2px solid black; /* Borde negro */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+    transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
+
+/* Cambia el color de fondo del botón al pasar el cursor por encima */
+#go-back:hover {
+    background-color: #c62828; /* Color de fondo rojo más oscuro */
+}
+
+/* Cambia el color de fondo del botón al hacer clic */
+#go-back:active {
+    background-color: #a71c1c; /* Color de fondo rojo más oscuro */
+}
+
+
 
 .instructions {
     margin-top: 20px; /* Espacio superior */
@@ -280,6 +308,57 @@ div.img span{
 .img-border {
     border: 2px solid #ffffff; /* Establece un borde blanco de 2 píxeles */
     border-radius: 5px; /* Agrega esquinas redondeadas al borde */
+}
+
+.explanation-trigger {
+    position: relative;
+    cursor: pointer;
+}
+
+.arrow-down {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+    margin-left: 5px;
+}
+
+.info-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px;
+}
+.info {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.explanation-content {
+    position: absolute;
+    left: -200px; /* Position to the left */
+    top: 0;
+    width: 180px; /* Adjust width as needed */
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    display: none;
+    z-index: 1000; /* Ensure it appears above other elements */
+}
+
+#patterns-explanation {
+    top: -30px; /* Move patterns explanation up */
+}
+
+#flatten-explanation {
+    top: 0; /* Default position for flatten explanation */
+}
+
+.radio-label {
+    font-family: Arial, sans-serif;
 }
 
 

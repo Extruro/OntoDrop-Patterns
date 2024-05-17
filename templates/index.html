@@ -114,6 +114,7 @@
     <section class="content pt-2 px-5" style="margin-top: 30px; margin-bottom: 30px;">
         <div class="container">
             <div class="row pb-5">
+
                 <div class="col-lg-6 pt-2">
                     <h4 class="mb-4">Steps to follow</h4>
                     <!--<video class="w-100" controls>
@@ -130,25 +131,75 @@
                         <li>A .zip file with the results will be downloaded.</li>
                         <li>If you need more information about using the tool, click <u><a href="howtouse.html">here.</a></u></li>
                     </ol>
-                </div> 
-
-                <div class="col-lg-6 pt-2 text-center">
-                    <h4 class="mb-4">SERVICE</h4>
-                    <div class="drop-area" id="drag-drop-area">
-                        <p class="lead text-dark drag-text" id="drag-text">Drag and drop your ontology or click to choose your file</p>
-                        <i id="loadingSpinner" class="spinner-border text-primary" style="display: none; margin-top: 155px; margin-left: auto; margin-right: auto;" role="status">
-                            <span class="sr-only">Loading...</span>
-                        </i>                        
-                        <div id="response" style="display: none;"></div>
-                        <input type="file" id="fileElem" style="display: none;">
-
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <button class="btn mt-2 drag-button" id="submit">Submit</button>
-                        <button class="btn mt-2 drag-button" id="download">Download Pattern</button>
-                    </div>
-
                 </div>
+
+
+                <div class="container">
+                    <div class="row">
+                        <!-- Columna izquierda para Patterns y Flatten -->
+                        <div class="col-lg-6 pt-2 text-center">
+                            <h4 class="mb-4">1) Choose options</h4>
+                            <div class="row pt-5">
+                                <!-- Columna para Patterns -->
+                                <div class="col-lg-6">
+                                    <h5 class="explanation-trigger-patterns" data-target="explanation-content-flatten">Patterns <span class="arrow-down"></span></h5>
+                                    <div class="explanation-content-patterns" style="display: none; border: 1px solid #000000; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); background-color: #93e29d; padding: 10px;">
+                                        <p><strong>Is a flag to indicate if the patterns are going to be created from the type of the terms or from the name of the terms or from both. By default "type" is selected.</strong></p>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="radio" id="pattern1Radio" name="patternOption">
+                                        <label for="pattern1Radio" class="radio-label">Type</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="radio" id="pattern2Radio" name="patternOption">
+                                        <label for="pattern2Radio" class="radio-label">Name</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="radio" id="pattern3Radio" name="patternOption">
+                                        <label for="pattern3Radio" class="radio-label">Both</label>
+                                    </div>
+                                </div>
+                                <!-- Columna para Flatten -->
+                                <div class="col-lg-6">
+                                    <h5 class="explanation-trigger-flatten" data-target="explanation-content-flatten">Flatten <span class="arrow-down"></span></h5>
+                                    <div class="explanation-content-flatten" style="display: none; border: 1px solid #000000; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); background-color: #93e29d; padding: 10px;">
+                                        <p><strong>Is a flag to indicate if the collections are going to be flattened if they only contain named classes. By default "no" is selected.</strong></p>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <input type="radio" id="flatten1Radio" name="flattenOption">
+                                        <label for="flatten1Radio" class="radio-label">No</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="radio" id="flatten2Radio" name="flattenOption">
+                                        <label for="flatten2Radio" class="radio-label">Yes</label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                        
+                        
+                        <!-- Columna derecha para el servicio -->
+                        <div class="col-lg-6 pt-2 text-center">
+                            <h4 class="mb-4">2)Upload your ontologies here</h4>
+                            <div class="drop-area" id="drag-drop-area">
+                                <p class="lead text-dark drag-text" id="drag-text">Drag and drop your ontology or click to choose your file</p>
+                                <i id="loadingSpinner" class="spinner-border text-primary" style="display: none; margin-top: 155px; margin-left: auto; margin-right: auto;" role="status">
+                                    <span class="sr-only">Loading...</span>
+                                </i>                        
+                                <div id="response" style="display: none;"></div>
+                                <input type="file" id="fileElem" style="display: none;">
+                            </div>
+                            <div class="d-flex justify-content-between">
+                                <button class="btn mt-2 drag-button" id="submit" disabled>Submit</button>
+                                <button class="btn mt-2 drag-button" id="download" disabled>Download Pattern</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
             </div>
 
         </div>
@@ -158,34 +209,54 @@
     
 
     
-    
-
-    <!-- Ventana modal -->
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2>Choose Options</h2>
+<!-- Ventana modal -->
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <h2>No han sido seleccionadas las opciones</h2>
+        <p>Por favor selecciona una opción para <strong>Patterns</strong> y <strong>Flatten</strong>.</p>
+        <div class="info-container">
+            <span class="info" id="patterns-info" title="Information">&#9432;</span>
             <label for="patterns">Patterns:</label>
             <select id="patterns">
                 <option value="type">Type</option>
                 <option value="name">Name</option>
                 <option value="both">Both</option>
             </select>
-            <br>
+            <div class="explanation-content" id="patterns-explanation">
+                <p>Patterns describe how classes are structured in your ontology.</p>
+            </div>
+        </div>
+        <br>
+        <div class="info-container">
+            <span class="info" id="flatten-info" title="Information">&#9432;</span>
             <label for="flatten">Flatten:</label>
             <select id="flatten">
                 <option value="no">No</option>
                 <option value="yes">Yes</option>               
             </select>
-            <br>
-            <button id="modal-submit">Done</button>
+            <div class="explanation-content" id="flatten-explanation">
+                <p>Flatten indicates whether collections containing only named classes should be flattened.</p>
+            </div>
         </div>
+        <br>
+        <button id="modal-submit">Save</button>
+        <button id="go-back">Go back</button>
     </div>
+</div>
+
+
+
+
+
+
+
+
+
     
 
 
     <!--Descriptions about web-->
-    <section class="row">
+    <!-- <section class="row">
         <div class="column">
             <img src="static/images/clock.png" alt="Imagen 1" class="imagen-pequena">
             <h5>Quick and easy.</h5>
@@ -201,7 +272,7 @@
             <h5>Compatibility.</h5>
             <p>The tool works with different formats and sizes of ontologies.</p>
         </div>
-    </section>
+    </section> -->
     
     
 

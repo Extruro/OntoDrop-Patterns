@@ -2,8 +2,15 @@ const dragDropArea = document.getElementById('drag-drop-area');
 const input = dragDropArea.querySelector('#fileElem');
 const inputName = dragDropArea.querySelector('#drag-text');
 const closeModal = document.querySelector('.close');
+
 const submitButton = document.getElementById('submit');
 const downloadButton = document.getElementById('download');
+const goBackButton = document.getElementById("go-back");
+
+const flattenOption = document.querySelector('input[name="flattenOption"]:checked');
+const patternOption = document.querySelector('input[name="patternOption"]:checked');
+const patternsInfo = document.getElementById('patterns-info');
+const flattenInfo = document.getElementById('flatten-info');
 
 //Button to download an xml file which helps users to detect the errors in their Ontologys
 const downloadButtonXmlErrorFile = document.getElementById('download-xml-errors');
@@ -132,8 +139,30 @@ dragDropArea.addEventListener('dragover', (e) => {
 //Click event handler
 //If the user click on the box => the user can select a local file to upload
 dragDropArea.addEventListener('click', (e)=>{
-    input.click();
+   
+    const patternOptionChecked = document.querySelector('input[name="patternOption"]:checked');
+    const flattenOptionChecked = document.querySelector('input[name="flattenOption"]:checked');
+
+    //Reestabler botones de Submit y Download Patterns
+    submitButton.style.backgroundColor = "#808080"; 
+    submitButton.style.color = "white"; 
+    submitButton.disabled = true; 
+    submitButton.style.cursor = "not-allowed"; 
+    downloadButton.style.backgroundColor = "#808080"; 
+    downloadButton.style.color = "white"; 
+    downloadButton.disabled = true; 
+    downloadButton.style.cursor = "not-allowed"; 
+
+    //Comprueba si han seleccionado los dos checks
+    if (!patternOptionChecked || !flattenOptionChecked) {
+        document.getElementById("myModal").style.display = "block";
+    }
+    else{
+        input.click();
+    }
+
 });
+
 
 //Change event handler
 //Each time a user select a file => indicate to the user the name of the file
@@ -145,6 +174,11 @@ input.addEventListener('change', (e) => {
     checkFiles(input.files);
 });
 
+
+
+
+
+
 //Drop event handler
 //Each time a user drop a file => indicate to the user the name of the file
 dragDropArea.addEventListener('drop', (e) => {
@@ -154,16 +188,40 @@ dragDropArea.addEventListener('drop', (e) => {
     checkFiles(e.dataTransfer.files);
 });
 
+
+
+
+
+
+
+
+
+
+
+
 //Function to check the number of files
 function checkFiles(files){
+    const patternOptionChecked = document.querySelector('input[name="patternOption"]:checked');
+    const flattenOptionChecked = document.querySelector('input[name="flattenOption"]:checked');
+    
     if (files.length === undefined) {
+        
         //There is just one file
-        processFile(files);
-        modal.style.display = "block";
+        if (!patternOptionChecked || !flattenOptionChecked) {
+            modal.style.display = "block";
+        }
+        else{
+            processFile(files);
+        }
+        
     } else if (files.length === 1) {
-        //There is just one file
-        processFile(files[0]);
-        modal.style.display = "block";
+        //There is just one file    
+        if (!patternOptionChecked || !flattenOptionChecked) {
+            modal.style.display = "block";
+        }
+        else{
+            processFile(files[0]);
+        }
     } else {
         //There is more than one file. Just the first file is processed
         alert('Only the first ontology is going to be processed');
@@ -182,6 +240,12 @@ function processFile(f) {
             inputName.innerHTML = '<b>"' + f.name + '"</b>' + ' selected';
             file = f;
             loadFile = true;
+
+            submitButton.style.backgroundColor = "#4CAF50"; // Cambiar color de fondo
+            submitButton.style.color = "white"; // Cambiar color del texto
+            submitButton.disabled = false; // Habilitar el botón si estaba deshabilitado
+            submitButton.style.cursor = "pointer"; // Cambiar el cursor para indicar que es clicable
+
         } else {
             alert('The file extension must be zip or csv');
         }
@@ -201,7 +265,26 @@ submitButton.addEventListener('click', (e) => {
         loadXmlErrorFile = false;
         loadFile = false;
         spinnerLoading.style.display = 'block';
-        inputName.innerHTML = 'Transforming ontology...';        
+        inputName.innerHTML = 'Transforming ontology...';  
+
+        // Seleccionar el radio adecuado según el valor de patterns
+        if (document.getElementById("pattern1Radio").checked === true) {
+            patterns = "type";
+            
+        } else if (document.getElementById("pattern2Radio").checked === true) {
+            patterns = "name";
+        } else if (document.getElementById("pattern3Radio").checked === true) {           
+            patterns = "both";
+        }
+        
+
+        // Seleccionar el radio adecuado según el valor de flatten
+        if (document.getElementById("flatten1Radio").checked === true) {           
+            flatten = "no";
+        } else if (document.getElementById("flatten2Radio").checked === true) {           
+            flatten = "yes";
+        }
+    
         transformOntology(file, patterns, flatten);
         
         
@@ -236,6 +319,12 @@ function transformOntology(file, patterns, flatten){
             responseText.style.color = "green";     // Color verde para indicar éxito
             responseText.style.textAlign = "center"; // Centrar el texto en el elemento
             responseText.style.lineHeight = "250px"; // Ajustar la altura de línea verticalmente
+
+            downloadButton.style.backgroundColor = "#4CAF50"; // Cambiar color de fondo
+            downloadButton.style.color = "white"; // Cambiar color del texto
+            downloadButton.disabled = false; // Habilitar el botón si estaba deshabilitado
+            downloadButton.style.cursor = "pointer"; // Cambiar el cursor para indicar que es clicable
+            
             loadTransformedOntology = true;
 
             var errors_keys = Object.keys(response['errors']);   
@@ -515,34 +604,83 @@ downloadButtonXmlErrorFile.addEventListener('click', ()=>{
 
 // Cuando el usuario haga clic en el botón, abrir la ventana modal
 btn.onclick = function() {
-  modal.style.display = "block";
+  //modal.style.display = "block";
 }
 
 
 // Asignar un evento de clic al botón "Done"
 modalSubmit.addEventListener('click', (e) => {
-    console.log("Sending values to server...");
+    
     patterns = document.getElementById("patterns").value;
     flatten = document.getElementById("flatten").value;
     modal.style.display = "none";
+    
 
-    // Verificar si los campos están vacíos y ajustar los valores default
-    if (patterns.trim() === "") {
-         patterns = "type";
-     }
-     if (flatten.trim() === "") {
-         flatten = "no";
-     }
+    // Seleccionar el radio adecuado según el valor de patterns
+    if (patterns === "type") {
+        document.getElementById("pattern1Radio").checked = true;
+    } else if (patterns === "name") {
+        document.getElementById("pattern2Radio").checked = true;
+    } else if (patterns === "both") {
+        document.getElementById("pattern3Radio").checked = true;
+    }
+    
+    // Seleccionar el radio adecuado según el valor de flatten
+    if (flatten === "no") {
+        document.getElementById("flatten1Radio").checked = true;
+    } else if (flatten === "yes") {
+        document.getElementById("flatten2Radio").checked = true;
+    }
 
+    input.click();
 });
 
-// Agregar un evento de clic al elemento de cierre
-closeModal.addEventListener('click', function() {
-    // Mostrar la ventana de advertencia
-    if (confirm("If you close the window without saving any values, the default values (patterns= type, flatten=no) will be set automatically.")) {
-        // Si el usuario confirma, ocultar la ventana modal
-        modal.style.display = "none";
+
+document.querySelectorAll('.info').forEach(item => {
+    item.addEventListener('click', event => {
+        const explanationId = item.id === 'patterns-info' ? 'patterns-explanation' : 'flatten-explanation';
+        const content = document.getElementById(explanationId);
+        if (content.style.display === 'none' || content.style.display === '') {
+            content.style.display = 'block';
+        } else {
+            content.style.display = 'none';
+        }
+    });
+});
+
+// Close explanation when clicking outside of it
+window.addEventListener('click', event => {
+    if (!event.target.classList.contains('info')) {
+        document.querySelectorAll('.explanation-content').forEach(content => {
+            content.style.display = 'none';
+        });
     }
+});
+
+// Agregar eventos de escucha para mostrar la información emergente
+patternsInfo.addEventListener('mouseenter', () => {
+    patternsInfo.setAttribute('title', 'Patterns describe how classes are structured in your ontology.');
+});
+
+flattenInfo.addEventListener('mouseenter', () => {
+    flattenInfo.setAttribute('title', 'Flatten indicates whether collections containing only named classes should be flattened.');
+});
+
+// Asignar un evento de clic al botón "Volver atrás"
+goBackButton.addEventListener("click", () => {
+    // Ocultar la ventana modal
+    document.getElementById("myModal").style.display = "none";
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    var triggers = document.querySelectorAll('.explanation-trigger-flatten');
+    triggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function() {
+            var targetId = this.getAttribute('data-target');
+            var target = document.querySelector('.' + targetId);
+            target.style.display = (target.style.display === 'none' || target.style.display === '') ? 'block' : 'none';
+        });
+    });
 });
 
 
