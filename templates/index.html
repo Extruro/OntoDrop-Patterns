@@ -16,10 +16,11 @@
 </head>
 <body>
 
-    <a href="#top" class="btn btn-light position-fixed" style="bottom: 20px; right: 20px;">
+    <a href="#top" class="blue-btn position-fixed" style="bottom: 20px; right: 20px;">
         <i class="bi bi-arrow-up"></i>
     </a>
     <div id="top"></div>
+    
 
     <!--Navbar-->
     <header>
@@ -114,95 +115,108 @@
     <section class="content pt-2 px-5" style="margin-top: 30px; margin-bottom: 30px;">
         <div class="container">
             <div class="row pb-5">
-
-                <div class="col-lg-6 pt-2">
-                    <h4 class="mb-4">Steps to follow</h4>
-                    <!--<video class="w-100" controls>
-                        <source src="static/resources/getting-started.mp4" type="video/mp4">
-                        Your browser does not support HTML video.
-                    </video>-->
-                    <ol class="instructions">
-                        <li>Prepare the ontology or set of ontologies you want to transform.</li>
-                        <li>They must be inside a <strong>.zip</strong> file or in <strong>.csv</strong> if you want to download them.</li>
-                        <li>Attach only one file with the ontology(ies) by dragging and dropping or clicking on the service box.</li>
-                        <li>Once attached, the file name appears in the box. You can now click on <em>"Submit"</em>.</li>
-                        <li>Wait until <strong><em>"SUCCESSFULLY COMPLETED"</em></strong> appears.</li>
-                        <li>Now you can download the patterns by clicking on the "Download Pattern" button. </li>
-                        <li>A .zip file with the results will be downloaded.</li>
-                        <li>If you need more information about using the tool, click <u><a href="howtouse.html">here.</a></u></li>
-                    </ol>
-                </div>
-
-
                 <div class="container">
                     <div class="row">
+                        <div class="col-lg-6 pt-2">
+                            <h4 class="mb-4">Steps to follow</h4>
+                            <ol class="instructions">
+                                <li>
+                                    <span class="step-number">1</span> Prepare the ontology or set of ontologies you want to transform.
+                                </li>
+                                <li>
+                                    <span class="step-number">2</span> They must be inside a <strong>.zip</strong> file or in <strong>.csv.</strong>
+                                </li>
+                                <li>
+                                    <span class="step-number">3</span> Perform step <strong>1)Choose options.</strong>
+                                </li>
+                                <li>
+                                    <span class="step-number">4</span> You must have both options filled in.
+                                </li>
+                                <li>
+                                    <span class="step-number">5</span> Then go to step <strong>2)Upload your ontologies here.</strong>
+                                </li>
+                                <li>
+                                    <span class="step-number">6</span> Attach your file with the ontologies and click <strong><span style="color: green;">Submit.</span></strong>
+                                </li>
+                                <li>
+                                    <span class="step-number">7</span> Wait until <strong><span style="color: green;">Download Patterns</span></strong> button is green.
+
+                                </li>
+                                <li>
+                                    <span class="step-number">8</span>  Now you can download your patterns in a <strong>.zip</strong> file.
+
+                                </li>
+                                <li>
+                                    <span class="step-number">+</span> If you need more information about using the tool, click <u><a href="howtouse.html">here</a></u>.
+                                </li>
+                            </ol>
+                        </div>
+                        
+                        
                         <!-- Columna izquierda para Patterns y Flatten -->
                         <div class="col-lg-6 pt-2 text-center">
-                            <h4 class="mb-4">1) Choose options</h4>
-                            <div class="row pt-5">
-                                <!-- Columna para Patterns -->
-                                <div class="col-lg-6">
-                                    <h5 class="explanation-trigger-patterns" data-target="explanation-content-flatten">Patterns <span class="arrow-down"></span></h5>
-                                    <div class="explanation-content-patterns" style="display: none; border: 1px solid #000000; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); background-color: #93e29d; padding: 10px;">
-                                        <p><strong>Is a flag to indicate if the patterns are going to be created from the type of the terms or from the name of the terms or from both. By default "type" is selected.</strong></p>
+                            <div class="options-container">
+                                <h4 class="mb-4">1) Choose options</h4>
+                                <div class="row pt-3 justify-content-center">
+                                    <!-- Columna para Patterns -->
+                                    <div class="col-lg-6 text-center">
+                                        <div style="display: flex; align-items: center; justify-content: center;">
+                                            <h5 class="explanation-trigger-patterns" data-target="explanation-content-patterns">Patterns</h5>
+                                            <div class="info-icon" id="patterns-info-icon">i</div>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="radio" id="pattern1Radio" name="patternOption">
+                                            <label for="pattern1Radio" class="radio-label">Type</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="radio" id="pattern2Radio" name="patternOption">
+                                            <label for="pattern2Radio" class="radio-label">Name</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="radio" id="pattern3Radio" name="patternOption">
+                                            <label for="pattern3Radio" class="radio-label">Both</label>
+                                        </div>
                                     </div>
-                                    <div class="form-group">
-                                        <input type="radio" id="pattern1Radio" name="patternOption">
-                                        <label for="pattern1Radio" class="radio-label">Type</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="radio" id="pattern2Radio" name="patternOption">
-                                        <label for="pattern2Radio" class="radio-label">Name</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="radio" id="pattern3Radio" name="patternOption">
-                                        <label for="pattern3Radio" class="radio-label">Both</label>
+                                    <!-- Columna para Flatten -->
+                                    <div class="col-lg-6 text-center">
+                                        <div style="display: flex; align-items: center; justify-content: center;">
+                                            <h5 class="explanation-trigger-flatten" data-target="explanation-content-flatten">Flatten</h5>
+                                            <div class="info-icon" id="flatten-info-icon">i</div>
+                                        </div>  
+                                        <div class="form-group">
+                                            <input type="radio" id="flatten1Radio" name="flattenOption">
+                                            <label for="flatten1Radio" class="radio-label">No</label>
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="radio" id="flatten2Radio" name="flattenOption">
+                                            <label for="flatten2Radio" class="radio-label">Yes</label>
+                                        </div>
                                     </div>
                                 </div>
-                                <!-- Columna para Flatten -->
-                                <div class="col-lg-6">
-                                    <h5 class="explanation-trigger-flatten" data-target="explanation-content-flatten">Flatten <span class="arrow-down"></span></h5>
-                                    <div class="explanation-content-flatten" style="display: none; border: 1px solid #000000; border-radius: 5px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); background-color: #93e29d; padding: 10px;">
-                                        <p><strong>Is a flag to indicate if the collections are going to be flattened if they only contain named classes. By default "no" is selected.</strong></p>
-                                    </div>
+                            </div>
+                        </div>
+                  
 
-                                    <div class="form-group">
-                                        <input type="radio" id="flatten1Radio" name="flattenOption">
-                                        <label for="flatten1Radio" class="radio-label">No</label>
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="radio" id="flatten2Radio" name="flattenOption">
-                                        <label for="flatten2Radio" class="radio-label">Yes</label>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                        </div>
-                        
-                        
-                        <!-- Columna derecha para el servicio -->
-                        <div class="col-lg-6 pt-2 text-center">
-                            <h4 class="mb-4">2)Upload your ontologies here</h4>
-                            <div class="drop-area" id="drag-drop-area">
-                                <p class="lead text-dark drag-text" id="drag-text">Drag and drop your ontology or click to choose your file</p>
-                                <i id="loadingSpinner" class="spinner-border text-primary" style="display: none; margin-top: 155px; margin-left: auto; margin-right: auto;" role="status">
-                                    <span class="sr-only">Loading...</span>
-                                </i>                        
-                                <div id="response" style="display: none;"></div>
-                                <input type="file" id="fileElem" style="display: none;">
-                            </div>
-                            <div class="d-flex justify-content-between">
-                                <button class="btn mt-2 drag-button" id="submit" disabled>Submit</button>
-                                <button class="btn mt-2 drag-button" id="download" disabled>Download Pattern</button>
-                            </div>
-                        </div>
+
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <h4 class="mb-4 text-center">2) Upload your ontologies here</h4>
+                    <div class="drop-area text-center" id="drag-drop-area">
+                        <p class="lead text-dark drag-text" id="drag-text">Drag and drop your ontology or click to choose your file</p>
+                        <i id="loadingSpinner" class="spinner-border text-primary" style="display: none; margin-top: 80px; margin-left: auto; margin-right: auto;" role="status">
+                            <span class="sr-only">Loading...</span>
+                        </i>
+                        <div id="response" style="display: none;"></div>
+                        <input type="file" id="fileElem" style="display: none;">
+                    </div>
+                    <div class="d-flex justify-content-between mt-3">
+                        <button class="btn drag-button" id="submit" disabled>Submit</button>
+                        <button class="btn drag-button" id="download" disabled>Download Pattern</button>
                     </div>
                 </div>
-                
-                
             </div>
-
-        </div>
+        </div>          
+        
     </section>
 
    
@@ -212,37 +226,275 @@
 <!-- Ventana modal -->
 <div id="myModal" class="modal">
     <div class="modal-content">
-        <h2>No han sido seleccionadas las opciones</h2>
-        <p>Por favor selecciona una opción para <strong>Patterns</strong> y <strong>Flatten</strong>.</p>
+        <h2>The options have not been selected</h2>
+        <p>Please select one option for <strong>Patterns</strong> and one for <strong>Flatten</strong>.</p>
         <div class="info-container">
-            <span class="info" id="patterns-info" title="Information">&#9432;</span>
+            <span class="info-icon" id="patterns-info">i</span>          
             <label for="patterns">Patterns:</label>
             <select id="patterns">
                 <option value="type">Type</option>
                 <option value="name">Name</option>
                 <option value="both">Both</option>
             </select>
-            <div class="explanation-content" id="patterns-explanation">
-                <p>Patterns describe how classes are structured in your ontology.</p>
-            </div>
         </div>
         <br>
         <div class="info-container">
-            <span class="info" id="flatten-info" title="Information">&#9432;</span>
+            <span class="info-icon" id="flatten-info">i</span>
             <label for="flatten">Flatten:</label>
             <select id="flatten">
                 <option value="no">No</option>
                 <option value="yes">Yes</option>               
             </select>
-            <div class="explanation-content" id="flatten-explanation">
-                <p>Flatten indicates whether collections containing only named classes should be flattened.</p>
-            </div>
         </div>
         <br>
         <button id="modal-submit">Save</button>
         <button id="go-back">Go back</button>
     </div>
 </div>
+
+<!-- Ventana modal +info Patterns -->
+<div id="infoPatterns" class="modal">
+    <div class="modal-content2">
+        <div class="info-container">
+            <h2>Patterns Option. <span class="small-text">Describe how classes are structured in your ontology.</span></h2>
+            <p>The different outputs depending on the <strong>patterns</strong>: 
+                <select id="patterns2">
+                    <option value="type">Type</option>
+                    <option value="name">Name</option>
+                    <option value="both">Both</option>
+                </select>
+            </p>
+        </div>
+        <br>
+        <div class="code-container">
+            <div class="code-fragment">
+                <div class="code-title">Type</div>
+                <div class="code-box">
+                    <pre><code>
+                        <span class="input-indicator">// INPUT</span>
+                        saref:Measurement rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty saref:relatesToProperty ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass saref:Property
+                            ]
+                        <span class="input-indicator">// INPUT</span>
+                        saref:Measurement rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty saref:isMeasuredIn ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass saref:UnitOfMeasure
+                            ]
+                            <span class="input-indicator">// EL ANTERIOR CÓDIGO DA LUGAR A ESTE PATRÓN:</span>
+                            Pattern 6
+                            Times 8
+                            Different ontologies 8
+                            Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4auto.rdf (1); saref4bldg.rdf (1); saref4city.rdf (1); saref4envi.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+                            saref:Measurement
+                            |rdfs:subClassOf
+                            |  |owl:Restriction
+                            |  |  |owl:onClass
+                            |  |  |  |saref:UnitOfMeasure
+                            |  |  |owl:onProperty
+                            |  |  |  |saref:isMeasuredIn
+                            |  |  |owl:qualifiedCardinality
+                            |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+                    </code></pre>
+                </div>
+                <div class="arrow">&#8595;</div>
+                <div class="code-box">
+                    <pre><code>
+                        <span class="input-indicator">// LOS DOS ANTERIORES JUNTOS DAN LUGAR A:</span>
+                        <span class="input-indicator">// OUTPUT</span>
+                        Pattern 5
+                        Times 25
+                        Different ontologies 10
+                        Ontologies in which it appears saref.rdf (2); saref4agri.rdf (2); saref4auto.rdf (2); saref4bldg.rdf (2); saref4city.rdf (2); saref4ener.rdf (5); saref4envi.rdf (5); saref4inma.rdf (1); saref4watr.rdf (2); saref4wear.rdf (2); 
+                        owl:Class
+                          |rdfs:subClassOf
+                          |  |owl:Restriction
+                          |  |  |owl:onClass
+                          |  |  |  |owl:Class
+                          |  |  |owl:onProperty
+                          |  |  |  |owl:ObjectProperty
+                          |  |  |owl:qualifiedCardinality
+                          |  |  |  |Data value
+                    </code></pre>
+                </div>
+            </div>
+            <div class="code-fragment">
+                <div class="code-title">Name</div>
+                <div class="code-box">
+                    <pre><code>
+                        <span class="input-indicator">// INPUT</span>
+                        saref:Measurement rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty saref:relatesToProperty ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass saref:Property
+                          ]
+                    </code></pre>
+                </div>
+                <div class="arrow">&#8595;</div>
+                <div class="code-box">
+                    <pre><code>
+                        <span class="input-indicator">// OUTPUT</span>
+                        Pattern 2
+                        Times 8
+                        Different ontologies 8
+                        Ontologies in which it appears saref.rdf (1); saref4agri.rdf (1); saref4auto.rdf (1); saref4bldg.rdf (1); saref4city.rdf (1); saref4envi.rdf (1); saref4watr.rdf (1); saref4wear.rdf (1); 
+                        saref:Measurement
+                          |rdfs:subClassOf
+                          |  |owl:Restriction
+                          |  |  |owl:onClass
+                          |  |  |  |saref:Property
+                          |  |  |owl:onProperty
+                          |  |  |  |saref:relatesToProperty
+                          |  |  |owl:qualifiedCardinality
+                          |  |  |  |Data value ["1"^^xsd:nonNegativeInteger]
+                    </code></pre>
+                </div>
+            </div>
+            <div class="code-fragment">
+                <div class="code-title">Both</div>
+                <div class="code-box">
+                    <pre><code>
+                        En este caso devolvería las dos outputs anteriores.
+                    </code></pre>
+                </div>
+            </div>
+        </div>
+        <div>
+            <button id="modal-submit2">Save</button>
+            <button id="go-back2">Go back</button>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+ <!-- Ventana modal +info Flatten-->
+<div id="infoFlatten" class="modal">
+    <div class="modal-content2">
+        <h2>Flatten Option. <span class="small-text">Indicates whether collections containing only named classes should be flattened.</span></h2>
+        <p>The different outputs depending on the <strong>flatten</strong>:
+            <select id="flatten2">
+            <option value="no">No</option>
+            <option value="yes">Yes</option>               
+            </select> 
+        </p>
+        <div class="info-container">
+            <!--<span class="info" id="flatten-info" title="Information">&#9432;</span>-->                
+        </div>
+        <br>
+        <div class="code-container">
+            <div class="code-fragment2">
+                <div class="code-title">No Flatten</div>
+                <div class="code-box">
+                    <pre><code>
+                        <span class="input-indicator">// INPUT</span>
+                        s4bldg:BuildingSpace rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty s4bldg:isSpaceOf ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( s4bldg:Building
+                                                                         s4bldg:BuildingSpace
+                                                                       )
+                                                         ]
+                                     ]
+                    </code></pre>
+                </div>
+                <div class="arrow">&#8595;</div>
+                <div class="code-box">
+                    <pre><code>
+                        <span class="input-indicator">// OUTPUT</span>
+                        Pattern 16
+                        Times 2
+                        Different ontologies 1
+                        Ontologies in which it appears saref4bldg.rdf (2); 
+                        owl:Class
+                        |rdfs:subClassOf
+                        |  |owl:Restriction
+                        |  |  |owl:allValuesFrom
+                        |  |  |  |owl:Class
+                        |  |  |  |  |owl:unionOf
+                        |  |  |  |  |  |rdf:List
+                        |  |  |  |  |  |  |rdf:first
+                        |  |  |  |  |  |  |  |owl:Class
+                        |  |  |  |  |  |  |rdf:rest
+                        |  |  |  |  |  |  |  |rdf:List
+                        |  |  |  |  |  |  |  |  |rdf:first
+                        |  |  |  |  |  |  |  |  |  |owl:Class
+                        |  |  |  |  |  |  |  |  |rdf:rest
+                        |  |  |  |  |  |  |  |  |  |rdf:nil
+                        |  |  |owl:onProperty
+                        |  |  |  |owl:ObjectProperty, owl:TransitiveProperty
+                    </code></pre>
+                </div>
+            </div>
+            <div class="code-fragment2">
+                <div class="code-title">Flatten</div>
+                <div class="code-box">
+                    <pre><code>
+                        <span class="input-indicator">// INPUT</span>
+                        s4bldg:BuildingSpace rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                       owl:onProperty s4bldg:isSpaceOf ;
+                                       owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( s4bldg:Building
+                                                                         s4bldg:BuildingSpace
+                                                                       )
+                                                         ]
+                                     ]
+                    </code></pre>
+                </div>
+                <div class="arrow">&#8595;</div>
+                <div class="code-box">
+                    <pre><code>
+                        <span class="input-indicator">// OUTPUT</span>
+                        Pattern 16
+                        Times 2
+                        Different ontologies 1
+                        Ontologies in which it appears saref4bldg.rdf (2); 
+                        owl:Class
+                          |rdfs:subClassOf
+                          |  |owl:Restriction
+                          |  |  |owl:allValuesFrom
+                          |  |  |  |owl:Class
+                          |  |  |  |  |owl:unionOf
+                          |  |  |owl:onProperty
+                          |  |  |  |owl:ObjectProperty, owl:TransitiveProperty
+                    </code></pre>
+                </div>
+            </div>
+            
+        </div>
+        <div >
+            <button id="modal-submit3">Save</button>
+            <button id="go-back3">Go back</button>
+        </div>
+    </div>
+</div>
+
+
+
+<!--Ventana de confirmación
+<div id="confirmSelect" class="modal">
+    <div class="modal-content">
+        <h2 class="modal-title">These are the options you have selected</h2>
+        <div class="selection-summary">
+            <p>Patterns:<strong> <span id="patterns-value"></span></strong></p>
+            <p>Flatten:<strong> <span id="flatten-value"></span></strong></p>
+        </div>
+        <br>
+        <div class="button-group">
+            <button id="continue-btn" class="action-btn">Continue</button>
+            <button id="edit-btn" class="action-btn">Edit</button>
+        </div>
+    </div>
+</div>
+ -->
+
 
 
 

@@ -6,6 +6,8 @@ const closeModal = document.querySelector('.close');
 const submitButton = document.getElementById('submit');
 const downloadButton = document.getElementById('download');
 const goBackButton = document.getElementById("go-back");
+const goBackButton2 = document.getElementById("go-back2");
+const goBackButton3 = document.getElementById("go-back3");
 
 const flattenOption = document.querySelector('input[name="flattenOption"]:checked');
 const patternOption = document.querySelector('input[name="patternOption"]:checked');
@@ -92,10 +94,28 @@ const xmlErrors = document.getElementById('xml-errors');
 
 // Obtener la ventana modal
 const modal = document.getElementById("myModal");
+//Obtener la ventana + info Patterns
+const infoPat = document.getElementById("infoPatterns");
+//Obtener la ventana + info Flatten
+const infoFlat = document.getElementById("infoFlatten");
+
+const confirm = document.getElementById("confirmSelect");
 // Obtener el botón que abre la ventana modal
 const btn = document.getElementById("drag-drop-area");
-// Obtener el botón "Done"
+// Obtener el botón "Save"
 const modalSubmit = document.getElementById("modal-submit");
+const modalSubmit2 = document.getElementById("modal-submit2");
+const modalSubmit3 = document.getElementById("modal-submit3");
+// Obtener botón "Continuar"
+const btnContinue = document.getElementById("continue-btn");
+// Obtener botón  "Editar"
+const btnEdit = document.getElementById("edit-btn");
+//Radios
+const pattern1Radio = document.getElementById("pattern1Radio");
+const pattern2Radio = document.getElementById("pattern2Radio");
+const pattern3Radio = document.getElementById("pattern3Radio");
+const flatten1Radio = document.getElementById("flatten1Radio");
+const flatten2Radio = document.getElementById("flatten2Radio");
 
 let response;
 let file;
@@ -105,6 +125,7 @@ let xmlErrorFile;
 let loadXmlErrorFile = false;
 var patterns = "type";
 var flatten = "no";
+var isDrop = false;
 
 //Drag enter event handler
 //If the drag file enter the box => the box color is white and
@@ -134,34 +155,81 @@ dragDropArea.addEventListener('dragover', (e) => {
     inputName.innerHTML = 'Release your ontology';
 });
 
+// Evento change en el input de tipo file para detectar cuando se ha seleccionado un archivo
+dragDropArea.addEventListener('change', (e) => {
+    // Cambiar el fondo del área de drop a blanco cuando se haya añadido un archivo
+    dragDropArea.style.backgroundColor = 'white';    
+});
 
 
-//Click event handler
-//If the user click on the box => the user can select a local file to upload
-dragDropArea.addEventListener('click', (e)=>{
-   
+dragDropArea.addEventListener('click', (e) => {
     const patternOptionChecked = document.querySelector('input[name="patternOption"]:checked');
     const flattenOptionChecked = document.querySelector('input[name="flattenOption"]:checked');
+    isDrop = false;
 
-    //Reestabler botones de Submit y Download Patterns
-    submitButton.style.backgroundColor = "#808080"; 
-    submitButton.style.color = "white"; 
-    submitButton.disabled = true; 
-    submitButton.style.cursor = "not-allowed"; 
-    downloadButton.style.backgroundColor = "#808080"; 
-    downloadButton.style.color = "white"; 
-    downloadButton.disabled = true; 
-    downloadButton.style.cursor = "not-allowed"; 
+    // Reestablecer botones de Submit y Download Patterns
+    submitButton.style.backgroundColor = "#808080";
+    submitButton.style.color = "white";
+    submitButton.disabled = true;
+    submitButton.style.cursor = "not-allowed";
+    downloadButton.style.backgroundColor = "#808080";
+    downloadButton.style.color = "white";
+    downloadButton.disabled = true;
+    downloadButton.style.cursor = "not-allowed";
 
-    //Comprueba si han seleccionado los dos checks
+    // Comprueba si han seleccionado los dos checks
     if (!patternOptionChecked || !flattenOptionChecked) {
+
+        // Actualiza los campos del modal
+        const patternsSelect = document.getElementById('patterns');
+        const flattenSelect = document.getElementById('flatten');
+
+        // Actualizar select de Patterns si hay un valor seleccionado
+        if (patternOptionChecked) {
+            if (document.getElementById("pattern1Radio").checked) {
+                patternsSelect.value = "type";
+            } else if (document.getElementById("pattern2Radio").checked) {
+                patternsSelect.value = "name";
+            } else if (document.getElementById("pattern3Radio").checked) {
+                patternsSelect.value = "both";
+            }
+        } else {
+            patternsSelect.selectedIndex = -1; // Desseleccionar si no hay opción
+        }
+
+        // Actualizar select de Flatten si hay un valor seleccionado
+        if (flattenOptionChecked) {
+            if (document.getElementById("flatten1Radio").checked) {
+                flattenSelect.value = "no";
+            } else if (document.getElementById("flatten2Radio").checked) {
+                flattenSelect.value = "yes";
+            }
+        } else {
+            flattenSelect.selectedIndex = -1; // Desseleccionar si no hay opción
+        }
+
         document.getElementById("myModal").style.display = "block";
-    }
-    else{
+    } else {
+        if (document.getElementById("pattern1Radio").checked) {
+            patterns = "type";
+        } else if (document.getElementById("pattern2Radio").checked) {
+            patterns = "name";
+        } else if (document.getElementById("pattern3Radio").checked) {
+            patterns = "both";
+        }
+
+        if (document.getElementById("flatten1Radio").checked) {
+            flatten = "no";
+        } else if (document.getElementById("flatten2Radio").checked) {
+            flatten = "yes";
+        }
+        
         input.click();
     }
-
 });
+
+
+
 
 
 //Change event handler
@@ -182,10 +250,75 @@ input.addEventListener('change', (e) => {
 //Drop event handler
 //Each time a user drop a file => indicate to the user the name of the file
 dragDropArea.addEventListener('drop', (e) => {
+    const patternOptionChecked = document.querySelector('input[name="patternOption"]:checked');
+    const flattenOptionChecked = document.querySelector('input[name="flattenOption"]:checked');
+    isDrop = true;
+    // Reestablecer botones de Submit y Download Patterns
+    submitButton.style.backgroundColor = "#808080";
+    submitButton.style.color = "white";
+    submitButton.disabled = true;
+    submitButton.style.cursor = "not-allowed";
+    downloadButton.style.backgroundColor = "#808080";
+    downloadButton.style.color = "white";
+    downloadButton.disabled = true;
+    downloadButton.style.cursor = "not-allowed";
+
     e.preventDefault();
     dragDropArea.style.backgroundColor = 'white';
     inputName.innerHTML = 'Drag and drop your ontology or click to choose your file';
+    inputName.style.display = 'block';
+    
+    //Comprueba si han seleccionado los dos checks
+    if (!patternOptionChecked || !flattenOptionChecked) {
+
+        // Actualiza los campos del modal
+        const patternsSelect = document.getElementById('patterns');
+        const flattenSelect = document.getElementById('flatten');
+
+        // Actualizar select de Patterns si hay un valor seleccionado
+        if (patternOptionChecked) {
+            if (document.getElementById("pattern1Radio").checked) {
+                patternsSelect.value = "type";
+            } else if (document.getElementById("pattern2Radio").checked) {
+                patternsSelect.value = "name";
+            } else if (document.getElementById("pattern3Radio").checked) {
+                patternsSelect.value = "both";
+            }
+        } else {
+            patternsSelect.selectedIndex = -1; // Desseleccionar si no hay opción
+        }
+
+        // Actualizar select de Flatten si hay un valor seleccionado
+        if (flattenOptionChecked) {
+            if (document.getElementById("flatten1Radio").checked) {
+                flattenSelect.value = "no";
+            } else if (document.getElementById("flatten2Radio").checked) {
+                flattenSelect.value = "yes";
+            }
+        } else {
+            flattenSelect.selectedIndex = -1; // Desseleccionar si no hay opción
+        }
+
+        document.getElementById("myModal").style.display = "block";
+    } else {
+        if (document.getElementById("pattern1Radio").checked) {
+            patterns = "type";
+        } else if (document.getElementById("pattern2Radio").checked) {
+            patterns = "name";
+        } else if (document.getElementById("pattern3Radio").checked) {
+            patterns = "both";
+        }
+
+        if (document.getElementById("flatten1Radio").checked) {
+            flatten = "no";
+        } else if (document.getElementById("flatten2Radio").checked) {
+            flatten = "yes";
+        }
+        
+    }
+
     checkFiles(e.dataTransfer.files);
+    
 });
 
 
@@ -212,6 +345,7 @@ function checkFiles(files){
         }
         else{
             processFile(files);
+            //confirm.style.display = "block";
         }
         
     } else if (files.length === 1) {
@@ -221,6 +355,7 @@ function checkFiles(files){
         }
         else{
             processFile(files[0]);
+            //confirm.style.display = "block";
         }
     } else {
         //There is more than one file. Just the first file is processed
@@ -240,11 +375,18 @@ function processFile(f) {
             inputName.innerHTML = '<b>"' + f.name + '"</b>' + ' selected';
             file = f;
             loadFile = true;
-
+            //document.getElementById('confirmSelect').style.display = 'block';
             submitButton.style.backgroundColor = "#4CAF50"; // Cambiar color de fondo
             submitButton.style.color = "white"; // Cambiar color del texto
             submitButton.disabled = false; // Habilitar el botón si estaba deshabilitado
-            submitButton.style.cursor = "pointer"; // Cambiar el cursor para indicar que es clicable
+            submitButton.style.cursor = "pointer"; // Cambiar el cursor para indicar que es clicable            
+            // Añadir la clase border-blink para hacer que el borde del botón parpadee
+            submitButton.classList.add('border-blink');
+
+            // Ejemplo: Para detener el parpadeo después de 10 segundos
+            setTimeout(function() {
+                submitButton.classList.remove('border-blink');
+            }, 15000);
 
         } else {
             alert('The file extension must be zip or csv');
@@ -264,8 +406,21 @@ submitButton.addEventListener('click', (e) => {
         //Correct submit
         loadXmlErrorFile = false;
         loadFile = false;
+        submitButton.classList.remove('border-blink');
         spinnerLoading.style.display = 'block';
+        pattern1Radio.disabled = true;
+        pattern2Radio.disabled = true;
+        pattern3Radio.disabled = true;
+        flatten1Radio.disabled = true;
+        flatten2Radio.disabled = true;
+        pattern1Radio.style.cursor = "not-allowed";
+        pattern2Radio.style.cursor = "not-allowed";
+        pattern3Radio.style.cursor = "not-allowed";
+        flatten1Radio.style.cursor = "not-allowed";
+        flatten2Radio.style.cursor = "not-allowed";
+        dragDropArea.style.cursor = "not-allowed";
         inputName.innerHTML = 'Transforming ontology...';  
+    
 
         // Seleccionar el radio adecuado según el valor de patterns
         if (document.getElementById("pattern1Radio").checked === true) {
@@ -313,17 +468,51 @@ function transformOntology(file, patterns, flatten){
             inputName.style.display = 'none';
             responseText.style.display = 'block';
             spinnerLoading.style.display = 'none';
-            responseText.innerText = "SUCCESSFULLY COMPLETED"//response['csv'];
+            pattern1Radio.disabled = false;
+            pattern2Radio.disabled = false;
+            pattern3Radio.disabled = false;
+            flatten1Radio.disabled = false;
+            flatten2Radio.disabled = false;
+            pattern1Radio.style.cursor = "pointer";
+            pattern2Radio.style.cursor = "pointer";
+            pattern3Radio.style.cursor = "pointer";
+            flatten1Radio.style.cursor = "pointer";
+            flatten2Radio.style.cursor = "pointer";
+            dragDropArea.style.cursor = "pointer";
+            
+            // Configuración del texto principal
+            responseText.innerText = "SUCCESSFULLY COMPLETED"; // response['csv'];
             responseText.style.fontSize = "20px";  // Tamaño de fuente más grande
             responseText.style.fontWeight = "bold"; // Texto en negrita
             responseText.style.color = "green";     // Color verde para indicar éxito
             responseText.style.textAlign = "center"; // Centrar el texto en el elemento
-            responseText.style.lineHeight = "250px"; // Ajustar la altura de línea verticalmente
+            responseText.style.marginBottom = "0"; // Eliminar margen inferior
+            
+            // Crear un nuevo elemento para el texto adicional
+            const additionalText = document.createElement('span');
+            additionalText.innerText = "(To resubmit more ontologies, click on the checkbox or drag your file.)"; // Texto adicional
+            additionalText.style.fontSize = "12px"; // Tamaño de la fuente más pequeño
+            additionalText.style.color = "#666"; // Color gris para diferenciarlo
+            additionalText.style.display = "block"; // Asegura que sea un bloque separado
+            additionalText.style.textAlign = "center"; // Centrar el texto adicional
+            additionalText.style.marginTop = "0"; // Eliminar margen superior
+            additionalText.style.paddingTop = "0"; // Asegura que no haya padding superior
+            
+            // Añadir el texto adicional debajo del texto principal
+            responseText.appendChild(additionalText);
+            
 
             downloadButton.style.backgroundColor = "#4CAF50"; // Cambiar color de fondo
             downloadButton.style.color = "white"; // Cambiar color del texto
             downloadButton.disabled = false; // Habilitar el botón si estaba deshabilitado
             downloadButton.style.cursor = "pointer"; // Cambiar el cursor para indicar que es clicable
+            // Añadir la clase border-blink para hacer que el borde del botón parpadee
+            downloadButton.classList.add('border-blink');
+
+            // Ejemplo: Para detener el parpadeo después de 10 segundos
+            setTimeout(function() {
+                downloadButton.classList.remove('border-blink');
+            }, 15000);
             
             loadTransformedOntology = true;
 
@@ -534,7 +723,8 @@ function showSimpleError(item, body, errors){
 //If there is not a transform ontology loaded => warn the user
 //If there is a transform ontology loaded => download it
 downloadButton.addEventListener('click', () => {
-    
+    downloadButton.classList.remove('border-blink');
+
     if (loadTransformedOntology) {
         var zipData = {
             'Errors.txt': response['errors'],
@@ -608,7 +798,7 @@ btn.onclick = function() {
 }
 
 
-// Asignar un evento de clic al botón "Done"
+// Asignar un evento de clic al botón "Save"
 modalSubmit.addEventListener('click', (e) => {
     
     patterns = document.getElementById("patterns").value;
@@ -632,9 +822,78 @@ modalSubmit.addEventListener('click', (e) => {
         document.getElementById("flatten2Radio").checked = true;
     }
 
-    input.click();
+    if(!areFieldsFilled()){
+        alert("Both fields must be filled in.");
+        document.getElementById('myModal').style.display = 'block';
+    }
+    else if(areFieldsFilled()){
+        input.click();
+    }
+    
+    
 });
 
+document.getElementById('modal-submit2').addEventListener('click', (e) => {
+    const patterns = document.getElementById("patterns2").value;
+
+    // Seleccionar el radio adecuado según el valor de patterns
+    if (patterns === "type") {
+        document.getElementById("pattern1Radio").checked = true;
+    } else if (patterns === "name") {
+        document.getElementById("pattern2Radio").checked = true;
+    } else if (patterns === "both") {
+        document.getElementById("pattern3Radio").checked = true;
+    }
+
+    updateMainModalOptions();
+    document.getElementById("infoPatterns").style.display = "none";
+});
+
+document.getElementById('modal-submit3').addEventListener('click', (e) => {
+    const flatten = document.getElementById("flatten2").value;
+
+    // Seleccionar el radio adecuado según el valor de flatten
+    if (flatten === "no") {
+        document.getElementById("flatten1Radio").checked = true;
+    } else if (flatten === "yes") {
+        document.getElementById("flatten2Radio").checked = true;
+    }
+
+    updateMainModalOptions();
+    document.getElementById("infoFlatten").style.display = "none";
+});
+
+function updateMainModalOptions() {
+    const patternOptionChecked = document.querySelector('input[name="patternOption"]:checked');
+    const flattenOptionChecked = document.querySelector('input[name="flattenOption"]:checked');
+
+    const patternsSelect = document.getElementById('patterns');
+    const flattenSelect = document.getElementById('flatten');
+
+    // Actualizar select de Patterns si hay un valor seleccionado
+    if (patternOptionChecked) {
+        if (document.getElementById("pattern1Radio").checked) {
+            patternsSelect.value = "type";
+        } else if (document.getElementById("pattern2Radio").checked) {
+            patternsSelect.value = "name";
+        } else if (document.getElementById("pattern3Radio").checked) {
+            patternsSelect.value = "both";
+        }
+    } else {
+        patternsSelect.selectedIndex = -1; // Desseleccionar si no hay opción
+    }
+
+    // Actualizar select de Flatten si hay un valor seleccionado
+    if (flattenOptionChecked) {
+        if (document.getElementById("flatten1Radio").checked) {
+            flattenSelect.value = "no";
+        } else if (document.getElementById("flatten2Radio").checked) {
+            flattenSelect.value = "yes";
+        }
+    } else {
+        flattenSelect.selectedIndex = -1; // Desseleccionar si no hay opción
+    }
+}
 
 document.querySelectorAll('.info').forEach(item => {
     item.addEventListener('click', event => {
@@ -682,6 +941,188 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 });
+
+document.addEventListener('DOMContentLoaded', function() {
+    var triggers = document.querySelectorAll('.explanation-trigger-patterns');
+    triggers.forEach(function(trigger) {
+        trigger.addEventListener('click', function() {
+            var targetId = this.getAttribute('data-target');
+            var target = document.querySelector('.' + targetId);
+            target.style.display = (target.style.display === 'none' || target.style.display === '') ? 'block' : 'none';
+        });
+    });
+});
+
+document.getElementById('flatten-info').addEventListener('click', function() {
+    patterns = document.getElementById("patterns").value;
+    flatten = document.getElementById("flatten").value;
+
+    
+
+    // Seleccionar el radio adecuado según el valor de patterns
+    if (patterns === "type") {
+        document.getElementById("pattern1Radio").checked = true;
+    } else if (patterns === "name") {
+        document.getElementById("pattern2Radio").checked = true;
+    } else if (patterns === "both") {
+        document.getElementById("pattern3Radio").checked = true;
+    }
+    
+    // Seleccionar el radio adecuado según el valor de flatten
+    if (flatten === "no") {
+        document.getElementById("flatten1Radio").checked = true;
+    } else if (flatten === "yes") {
+        document.getElementById("flatten2Radio").checked = true;
+    }
+    updateAndSaveValues();
+    infoFlat.style.display = 'block';
+});
+
+document.getElementById('patterns-info').addEventListener('click', function() {
+    patterns = document.getElementById("patterns").value;
+    flatten = document.getElementById("flatten").value;
+
+    
+
+    // Seleccionar el radio adecuado según el valor de patterns
+    if (patterns === "type") {
+        document.getElementById("pattern1Radio").checked = true;
+    } else if (patterns === "name") {
+        document.getElementById("pattern2Radio").checked = true;
+    } else if (patterns === "both") {
+        document.getElementById("pattern3Radio").checked = true;
+    }
+    
+    // Seleccionar el radio adecuado según el valor de flatten
+    if (flatten === "no") {
+        document.getElementById("flatten1Radio").checked = true;
+    } else if (flatten === "yes") {
+        document.getElementById("flatten2Radio").checked = true;
+    }
+    updateAndSaveValues();
+    infoPat.style.display = 'block';
+});
+
+// Función para actualizar y guardar valores seleccionados
+function updateAndSaveValues() {
+    const patternOptionChecked = document.querySelector('input[name="patternOption"]:checked');
+    const flattenOptionChecked = document.querySelector('input[name="flattenOption"]:checked');
+
+    const patternsSelect = document.getElementById('patterns');
+    const flattenSelect = document.getElementById('flatten');
+
+    const patternsSelect2 = document.getElementById('patterns2');
+    const flattenSelect2 = document.getElementById('flatten2');
+
+    // Actualizar y guardar select de Patterns si hay un valor seleccionado
+    if (patternOptionChecked) {
+        if (document.getElementById("pattern1Radio").checked) {
+            patternsSelect.value = "type";
+            patternsSelect2.value = "type";
+        } else if (document.getElementById("pattern2Radio").checked) {
+            patternsSelect.value = "name";
+            patternsSelect2.value = "name";
+        } else if (document.getElementById("pattern3Radio").checked) {
+            patternsSelect.value = "both";
+            patternsSelect2.value = "both";
+        }
+    } else {
+        patternsSelect.selectedIndex = -1; // Desseleccionar si no hay opción
+        patternsSelect2.selectedIndex = -1;
+    }
+
+    // Actualizar y guardar select de Flatten si hay un valor seleccionado
+    if (flattenOptionChecked) {
+        if (document.getElementById("flatten1Radio").checked) {
+            flattenSelect.value = "no";
+            flattenSelect2.value = "no";
+        } else if (document.getElementById("flatten2Radio").checked) {
+            flattenSelect.value = "yes";
+            flattenSelect2.value = "yes";
+        }
+    } else {
+        flattenSelect.selectedIndex = -1; // Desseleccionar si no hay opción
+        flattenSelect2.selectedIndex = -1;
+    }
+}
+
+document.getElementById('flatten-info-icon').addEventListener('click', function() {
+    updateAndSaveValues();
+    infoFlat.style.display = 'block';
+});
+
+document.getElementById('patterns-info-icon').addEventListener('click', function() {
+    updateAndSaveValues();
+    infoPat.style.display = 'block';
+});
+
+
+
+
+
+// Asignar un evento de clic al botón "Volver atrás"
+goBackButton2.addEventListener("click", () => {
+    // Ocultar la ventana modal
+    document.getElementById("infoPatterns").style.display = "none";
+});
+
+
+
+
+
+
+document.getElementById('go-back3').addEventListener('click', function() {
+
+    document.getElementById("infoFlatten").style.display = "none";
+});
+
+
+/*
+document.getElementById('modal-submit').addEventListener('click', function() {
+    // Obtener los valores seleccionados de Patterns y Flatten
+   
+    var patternsValue = document.getElementById('patterns').value;
+    var flattenValue = document.getElementById('flatten').value;
+    
+
+    // Mostrar la segunda ventana modal
+    openConfirmModal(patternsValue, flattenValue);
+
+    // Cerrar la primera ventana modal
+    document.getElementById('myModal').style.display = 'none';
+});
+
+function openConfirmModal(patterns, flatten) {
+    // Actualizar los valores en la segunda ventana modal
+    document.getElementById('patterns-value').innerText = patterns;
+    document.getElementById('flatten-value').innerText = flatten;
+    
+
+    // Mostrar la segunda ventana modal
+    //document.getElementById('confirmSelect').style.display = 'block';
+}
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    var arrows = document.querySelectorAll('.arrow-down');
+
+    arrows.forEach(function (arrow) {
+        arrow.addEventListener('click', function () {
+            this.classList.toggle('arrow-rotate'); // Agrega o quita la clase de rotación
+        });
+    });
+}); */
+
+
+function areFieldsFilled() {
+    const patternsSelect = document.getElementById('patterns');
+    const flattenSelect = document.getElementById('flatten');
+
+    const isPatternSelected = patternsSelect.value !== "";
+    const isFlattenSelected = flattenSelect.value !== "";
+
+    return isPatternSelected && isFlattenSelected;
+}
 
 
 
