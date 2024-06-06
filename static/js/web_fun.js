@@ -419,7 +419,7 @@ submitButton.addEventListener('click', (e) => {
         flatten1Radio.style.cursor = "not-allowed";
         flatten2Radio.style.cursor = "not-allowed";
         dragDropArea.style.cursor = "not-allowed";
-        inputName.innerHTML = 'Transforming ontology...';  
+        inputName.innerHTML = 'Generating patterns...';  
     
 
         // Seleccionar el radio adecuado según el valor de patterns
