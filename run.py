@@ -1,7 +1,5 @@
 from flask import Flask, render_template, request, flash, session, redirect, url_for
 
-app = Flask(__name__)
-
 import os
 import copy
 from datetime import datetime
@@ -17,7 +15,7 @@ from source.download_ontology import download_ontologies
 from source.create_structure import create_structure
 from source.identify_patterns import identify_patterns
 
-
+app = Flask(__name__)
 # Main page
 @app.route("/")
 def index():
