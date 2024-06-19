@@ -10,9 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <link rel="stylesheet" href="static/css/style.css">
-
     <title>OntoDrop Patterns</title>
-
 </head>
 <body>
 
@@ -54,64 +52,16 @@
     </header>
     
         
-
-
     <!--Showcase-->
     <section class="showcase pt-5 px-5 text-light">
         <div class="container text-center pt-5"> 
             <h1 id="title" class="pt-4 pb-2">OntoDrop Patterns</h1>
             <p class="lead pb-3">OntoDrop identify and extract patterns from a collection of ontologies.</p>
-            <!--<div class="py-1">
-                <p class="fw-bold mb-1">Contact:</p>
-                <p>María Poveda-Villalón <br>
-                    Contact email: chowlk@delicias.dia.fi.upm.es</p>
-            </div>
-            <div class="py-1">
-                <p class="fw-bold mb-1">Authors:</p>
-                <p class="px-3 secondary-text">
-                    <a class="link" href="https://thepetiteontologist.wordpress.com/" target="_blank">
-                        María Poveda-Villalón
-                    </a> 
-                    (<a class="link" href="https://oeg.fi.upm.es/" target="_blank">Ontology Engineering Group</a>, <a class="link" href="https://www.upm.es/" target="_blank">Universidad Politécnica de Madrid)</a><br>
-
-                    <a class="link" href="http://www.garcia-castro.com/" target="_blank">
-                        Raúl García-Castro
-                    </a> 
-                    (<a class="link" href="https://oeg.fi.upm.es/" target="_blank">Ontology Engineering Group</a>, <a class="link" href="https://www.upm.es/" target="_blank">Universidad Politécnica de Madrid)</a><br>
-                    
-                    <a class="link" href="https://www.linkedin.com/in/sergio-mario-carulli-p%C3%A9rez-7632b5217/" target="_blank">
-                        Sergio-Mario Carulli-Pérez
-                    </a> 
-                    (<a class="link" href="https://oeg.fi.upm.es/" target="_blank">Ontology Engineering Group</a>, <a class="link" href="https://www.upm.es/" target="_blank">Universidad Politécnica de Madrid)</a><br>
-
-                    <a class="link" href="https://www.linkedin.com/in/serge-chavez-feria/" target="_blank">
-                        Serge Chávez-Feria
-                    </a> 
-                    (<a class="link" href="https://oeg.fi.upm.es/" target="_blank">Ontology Engineering Group</a>, <a class="link" href="https://www.upm.es/" target="_blank">Universidad Politécnica de Madrid)</a>
-                </p>
-            </div> -->
         </div>
     </section>
 
     <!--Instructions-->
-    <!-- <section class="content pt-5 px-5">
-        <div class="container">
-            <h4>Instructions</h4>
-            <ol>
-                <li>Download the Chowlk template (<a class="link-primary" href="static/resources/chowlk-library-complete.xml" download="chowlk-library-complete">complete</a> or <a class="link-primary" href="static/resources/chowlk-library-lightweight.xml" download="chowlk-library-lightweight">lightweight</a> version).</li>
-                <li>Open diagrams.net (web or desktop)</li>
-                <li>In diagrams.net go to  File > Open Library from > Device ...</li>
-                <li>Select the library downloaded.</li>
-                <li>Make your conceptualization using the block that will appear on the side bar.</li>
-                <li>Download the diagram in xml format.</li>
-                <li>Drag and drop your model in the Service dropping area and download your TTL file.</li>
-            </ol>
-
-        </div>
-    </section> -->
-
-
-    <!--Service-->
+    <!--Columns, Info, Service-->
     <section class="content pt-2 px-5" style="margin-top: 30px; margin-bottom: 30px;">
         <div class="container">
             <div class="row pb-5">
@@ -153,12 +103,12 @@
                         </div>
                         
                         
-                        <!-- Columna izquierda para Patterns y Flatten -->
+                        <!-- Choose Patterns y Flatten -->
                         <div class="col-lg-6 pt-2 text-center">
                             <div class="options-container">
                                 <h4 class="mb-4">1) Choose options</h4>
                                 <div class="row pt-3 justify-content-center">
-                                    <!-- Columna para Patterns -->
+                                    <!-- Column for Patterns -->
                                     <div class="col-lg-6 text-center">
                                         <div style="display: flex; align-items: center; justify-content: center;">
                                             <h5 class="explanation-trigger-patterns" data-target="explanation-content-patterns">Patterns</h5>
@@ -177,7 +127,7 @@
                                             <label for="pattern3Radio" class="radio-label">Both</label>
                                         </div>
                                     </div>
-                                    <!-- Columna para Flatten -->
+                                    <!-- Column for Flatten -->
                                     <div class="col-lg-6 text-center">
                                         <div style="display: flex; align-items: center; justify-content: center;">
                                             <h5 class="explanation-trigger-flatten" data-target="explanation-content-flatten">Flatten</h5>
@@ -218,9 +168,6 @@
         </div>          
         
     </section>
-
-   
-    
 
     
 <!-- Ventana modal -->
@@ -345,9 +292,6 @@
 </div>
 
 
-
-
-
  <!-- Ventana modal +info Flatten-->
 <div id="infoFlatten" class="modal">
     <div class="modal-content2">
@@ -443,57 +387,6 @@
     </div>
 </div>
 
-
-
-<!--Ventana de confirmación
-<div id="confirmSelect" class="modal">
-    <div class="modal-content">
-        <h2 class="modal-title">These are the options you have selected</h2>
-        <div class="selection-summary">
-            <p>Patterns:<strong> <span id="patterns-value"></span></strong></p>
-            <p>Flatten:<strong> <span id="flatten-value"></span></strong></p>
-        </div>
-        <br>
-        <div class="button-group">
-            <button id="continue-btn" class="action-btn">Continue</button>
-            <button id="edit-btn" class="action-btn">Edit</button>
-        </div>
-    </div>
-</div>
- -->
-
-
-
-
-
-
-
-
-
-
-    
-
-
-    <!--Descriptions about web-->
-    <!-- <section class="row">
-        <div class="column">
-            <img src="static/images/clock.png" alt="Imagen 1" class="imagen-pequena">
-            <h5>Quick and easy.</h5>
-            <p>Drag and drop the files onto the page and click the generate button.</p>
-        </div>
-        <div class="column">
-            <img src="static/images/security.png" alt="Imagen 2" class="imagen-pequena">
-            <h5>Guaranteed security.</h5>
-            <p>Secure file transfers.</p>
-        </div>
-        <div class="column">
-            <img src="static/images/compatibility.png" alt="Imagen 3" class="imagen-pequena">
-            <h5>Compatibility.</h5>
-            <p>The tool works with different formats and sizes of ontologies.</p>
-        </div>
-    </section> -->
-    
-    
 
 
     

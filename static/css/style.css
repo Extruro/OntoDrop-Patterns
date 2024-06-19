@@ -211,7 +211,7 @@ div.img span {
 }
 
 .modal {
-  display: none; /* Oculta la ventana modal por defecto */
+  display: none; 
   position: fixed;
   z-index: 1;
   left: 0;
@@ -230,7 +230,7 @@ div.img span {
     width: 50%; /* Define el ancho de la ventana modal */
     border-radius: 5px; /* Bordes redondeados */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Sombra */
-  }
+}
 
 .modal-content2 {
     background-color: #f9f9f9; /* Color de fondo de la ventana modal */
@@ -240,9 +240,8 @@ div.img span {
     width: 80%; /* Define el ancho de la ventana modal */
     border-radius: 5px; /* Bordes redondeados */
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); /* Sombra */
-  }
+}
 
-/* Estilo para el botón de cerrar */
 .close {
   color: #aaa;
   float: right;
@@ -256,7 +255,7 @@ div.img span {
   text-decoration: none;
   cursor: pointer;
 }
-/* Estilo para el botón "Done" */
+
 #modal-submit {
   background-color: #4caf50; /* Color de fondo verde */
   color: white; /* Texto en color blanco */
@@ -288,19 +287,17 @@ div.img span {
     transition: background-color 0.3s; /* Transición suave del color de fondo */
     margin-bottom: 4px; /* Margen inferior de 5px */
     width: 49%;
-  }
+}
   
-  /* Cambia el color de fondo del botón al pasar el cursor por encima */
-  #modal-submit2:hover, #modal-submit3:hover {
-    background-color: #45a049; /* Color de fondo verde más oscuro */
-  }
+/* Cambia el color de fondo del botón al pasar el cursor por encima */
+#modal-submit2:hover, #modal-submit3:hover {
+  background-color: #45a049; /* Color de fondo verde más oscuro */
+}
   
-  /* Cambia el color de fondo del botón al hacer clic */
-  #modal-submit2:active,  #modal-submit3:active {
-    background-color: #36793e; /* Color de fondo verde más oscuro */
-  }
-
-
+/* Cambia el color de fondo del botón al hacer clic */
+#modal-submit2:active,  #modal-submit3:active {
+  background-color: #36793e; /* Color de fondo verde más oscuro */
+}
 
 /* Estilo para el botón "Volver atrás" */
 #go-back {
@@ -332,19 +329,19 @@ div.img span {
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar por encima */
     transition: background-color 0.3s; /* Transición suave del color de fondo */
-    margin-bottom: 4px; /* Margen inferior de 5px */
+    margin-bottom: 4px; 
     width: 49%;
-  }
+}
   
   /* Cambia el color de fondo del botón al pasar el cursor por encima */
-  #go-back2:hover,  #go-back3:hover {
-    background-color: #c62828; /* Color de fondo rojo más oscuro */
-  }
+#go-back2:hover,  #go-back3:hover {
+  background-color: #c62828; /* Color de fondo rojo más oscuro */
+}
   
-  /* Cambia el color de fondo del botón al hacer clic */
-  #go-back2:active, #go-back3:active {
-    background-color: #a71c1c; /* Color de fondo rojo más oscuro */
-  }
+/* Cambia el color de fondo del botón al hacer clic */
+#go-back2:active, #go-back3:active {
+  background-color: #a71c1c; /* Color de fondo rojo más oscuro */
+}
 
 .instructions {
   margin-top: 20px; /* Espacio superior */
@@ -385,35 +382,36 @@ div.img span {
   display: inline-block;
   margin-bottom: 20px;
 }
+
 .info {
   cursor: pointer;
   margin-right: 5px;
 }
 
 .explanation-content {
-    position: absolute;
-    left: -300px; /* Ajusta este valor según sea necesario para colocar el cuadro de diálogo a la izquierda */
-    top: 30px;
-    width: 280px; /* Ajusta el ancho */
-    background-color: #ffffff;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    border: 1px solid #000000; /* Borde azul */
-    border-radius: 5px;
-    display: none;
-    z-index: 1000; /* Asegura que aparezca encima de otros elementos */
+  position: absolute;
+  left: -300px; 
+  top: 30px;
+  width: 280px; /* Ajusta el ancho */
+  background-color: #ffffff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border: 1px solid #000000; /* Borde azul */
+  border-radius: 5px;
+  display: none;
+  z-index: 1000; 
 }
 
 #patterns-explanation {
-  top: -30px; /* Move patterns explanation up */
+  top: -30px; 
 }
 
 #patterns-explanation {
-    top: -30px; /* Mueve la explicación de patrones hacia arriba */
+  top: -30px; /* Mueve la explicación de patrones hacia arriba */
 }
 
 #flatten-explanation {
-    top: 0; /* Posición por defecto para la explicación de flatten */
+  top: 0; /* Posición por defecto para la explicación de flatten */
 }
 
 .options-container {
@@ -425,6 +423,7 @@ div.img span {
     margin-top: 20px; /* Separación del contenedor del título */
     transition: transform 0.3s, box-shadow 0.3s; /* Transición suave */
 }
+
 .options-container:hover {
     transform: translateY(-5px); /* Levanta el contenedor al pasar el ratón */
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Aumenta la sombra */
@@ -438,7 +437,7 @@ div.img span {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
     padding: 20px; /* Espaciado interno */
     margin-top: 20px; /* Separación del contenedor del título */
-  }
+}
 
 .dialog-box {
   border: 1px solid #000000;
@@ -473,7 +472,7 @@ div.img span {
 
 .border-blink {
     animation: border-blink 2s infinite;
-    border-width: 3px; /* Asegúrate de que el borde tenga un ancho para que el parpadeo sea visible */
+    border-width: 3px; 
     border-style: dashed; /* Establece el estilo del borde como discontinuo */
 }
 
@@ -491,7 +490,7 @@ div.img span {
     font-size: 0.9em; /* Tamaño del número */
     transition: background-color 0.3s, transform 0.3s;
     flex-shrink: 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Añadimos sombra */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
 }
 
 .instructions li:hover .step-number {
@@ -501,10 +500,10 @@ div.img span {
 
 .instructions strong {
     font-weight: bold;
-    color: black; /* Cambiamos el color a negro */
-    margin-right: 0.5em; /* Añadimos un pequeño margen a la derecha */
+    color: black; 
+    margin-right: 0.5em; 
     margin-left: 0.5em;
-    font-size: 1em; /* Ajustamos el tamaño del texto */
+    font-size: 1em; 
 }
 
 .instructions em {
@@ -520,24 +519,25 @@ div.img span {
 .instructions {
     list-style-type: none;
     padding-left: 0;
-    margin-left: 0; /* Ajustamos el margen izquierdo */
+    margin-left: 0; 
 }
 
 .instructions li {
     margin-bottom: 10px;
-    padding-left: 0; /* Ajustamos el padding izquierdo */
+    padding-left: 0;
     position: relative;
     display: flex;
-    align-items: flex-start; /* Alineamos al principio */
+    align-items: flex-start; 
 }
 
 .instructions li .step-number {
     flex-shrink: 0;
     margin-right: 10px;
 }
+
 .radio-label {
     display: inline-block;
-    padding-left: 10px; /* Añade espacio entre el radio y el texto */
+    padding-left: 10px; 
     color: #333; /* Color del texto */
     transition: color 0.3s; /* Transición suave para el color */
 }
@@ -546,7 +546,6 @@ div.img span {
     color: #007bff; /* Color azul cuando está seleccionado */
 }
 
-/* Nuevo estilo para mostrar el cursor de mano sobre los radio buttons */
 .form-group input[type="radio"] {
   cursor: pointer;
 }
@@ -554,6 +553,7 @@ div.img span {
 .radio-label:hover {
     color: #0056b3; /* Color azul oscuro cuando se pasa el ratón */
 }
+
 .form-group {
     display: flex;
     align-items: center;
@@ -570,13 +570,12 @@ div.img span {
     border-radius: 5px; /* Bordes redondeados */
     cursor: pointer; /* Cambia el cursor al pasar por encima */
     transition: background-color 0.3s; /* Transición suave del color de fondo */
+}
   
-  }
-  
-  /* Cambia el color de fondo del botón al pasar el cursor por encima */
-  #continue-btn:hover {
-    background-color: #45a049; /* Color de fondo verde más oscuro */
-  }
+/* Cambia el color de fondo del botón al pasar el cursor por encima */
+#continue-btn:hover {
+  background-color: #45a049; /* Color de fondo verde más oscuro */
+}
 
 #edit-btn {
     width: 48%;
@@ -602,7 +601,7 @@ div.img span {
     border-radius: 5px;
     display: inline-block;
     margin: auto;
-    width: 50%; /* Asegura que el sombreado ocupe todo el ancho */
+    width: 50%; 
 }
 
 .info-icon {
@@ -642,60 +641,57 @@ div.img span {
 
 .code-container {
     display: flex;
-    flex-wrap: wrap; /* Permitir que los elementos se ajusten a la pantalla */
+    flex-wrap: wrap; 
   }
   
-  .code-column {
-    
+.code-column {    
     margin-right: 0; /* Eliminar margen entre columnas */
     margin-bottom: 10px; /* Espacio entre filas */
-  }
+}
   
-  .code-fragment {
+.code-fragment {
     margin-bottom: 20px;
     width: 50%;
     position: relative;
-  }
+}
 
-  .code-fragment2 {
+.code-fragment2 {
     margin-bottom: 20px;
     width: 50%;
     position: relative;
-  }
+}
 
-  .code-box {
+.code-box {
     border: 1px solid #ccc;
     background-color: white;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    margin-right: 10px; /* Ajusta el margen entre las columnas */
-    
+    margin-right: 10px;  
 }
 
 .code-box pre,
 .code-box code {
-    font-size: 12px; /* Tamaño de la fuente ajustado según tu preferencia */
-    white-space: pre-line; /* Permite que el texto se envuelva */
-    padding: 0; /* Elimina el relleno interno */
+    font-size: 12px; 
+    white-space: pre-line; 
+    padding: 0; 
 }
 
 .code-title {
-    text-align: center; /* Centra horizontalmente el título */
-    margin-bottom: 10px; /* Espacio entre el título y el código */
+    text-align: center; 
+    margin-bottom: 10px; 
     font-weight: bold;
     text-decoration: underline;
 }
 
 .input-indicator {
-    color: #007bff; /* Color azul o el que prefieras */
-    font-style: italic; /* Estilo de fuente en cursiva */
+    color: #007bff; 
+    font-style: italic;
 }
 
 .small-text {
-    font-size: 0.7em; /* Ajusta el tamaño del texto según sea necesario */
-    font-weight: normal; /* Elimina la negrita */
-    
+    font-size: 0.7em; 
+    font-weight: normal; 
 }
 
 

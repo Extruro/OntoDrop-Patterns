@@ -22,7 +22,6 @@ const spinnerLoading = document.getElementById('loadingSpinner');
 
 const responseText = document.getElementById('response');
 const errorReport = document.getElementById('error-report');
-//const warningReport = document.getElementById('warning-report');
 
 //Warning accordions
 const restrictionsWItem = document.getElementById('restrictions-w-item');
@@ -228,10 +227,6 @@ dragDropArea.addEventListener('click', (e) => {
     }
 });
 
-
-
-
-
 //Change event handler
 //Each time a user select a file => indicate to the user the name of the file
 input.addEventListener('change', (e) => {
@@ -241,11 +236,6 @@ input.addEventListener('change', (e) => {
     inputName.style.display = 'block';
     checkFiles(input.files);
 });
-
-
-
-
-
 
 //Drop event handler
 //Each time a user drop a file => indicate to the user the name of the file
@@ -321,17 +311,6 @@ dragDropArea.addEventListener('drop', (e) => {
     
 });
 
-
-
-
-
-
-
-
-
-
-
-
 //Function to check the number of files
 function checkFiles(files){
     const patternOptionChecked = document.querySelector('input[name="patternOption"]:checked');
@@ -345,7 +324,6 @@ function checkFiles(files){
         }
         else{
             processFile(files);
-            //confirm.style.display = "block";
         }
         
     } else if (files.length === 1) {
@@ -355,7 +333,6 @@ function checkFiles(files){
         }
         else{
             processFile(files[0]);
-            //confirm.style.display = "block";
         }
     } else {
         //There is more than one file. Just the first file is processed
@@ -370,24 +347,20 @@ function processFile(f) {
     if (f != undefined) {
         // Check file extension
         const extension = f.name.split('.').pop().toLowerCase();
-        if (extension === 'xml' || extension === 'zip' || extension === 'csv') {
+        if (extension === 'zip' || extension === 'csv') {
             // File extension correct
             inputName.innerHTML = '<b>"' + f.name + '"</b>' + ' selected';
             file = f;
             loadFile = true;
-            //document.getElementById('confirmSelect').style.display = 'block';
-            submitButton.style.backgroundColor = "#4CAF50"; // Cambiar color de fondo
-            submitButton.style.color = "white"; // Cambiar color del texto
-            submitButton.disabled = false; // Habilitar el botón si estaba deshabilitado
-            submitButton.style.cursor = "pointer"; // Cambiar el cursor para indicar que es clicable            
-            // Añadir la clase border-blink para hacer que el borde del botón parpadee
+            submitButton.style.backgroundColor = "#4CAF50"; // Change background colour
+            submitButton.style.color = "white"; // Change text colour
+            submitButton.disabled = false; // Enable the button if it was previously disabled.
+            submitButton.style.cursor = "pointer"; // Change the cursor to indicate that it is clickable            
             submitButton.classList.add('border-blink');
-
-            // Ejemplo: Para detener el parpadeo después de 10 segundos
+            // To stop the flashing after 10 seconds
             setTimeout(function() {
                 submitButton.classList.remove('border-blink');
             }, 15000);
-
         } else {
             alert('The file extension must be zip or csv');
         }
@@ -395,7 +368,6 @@ function processFile(f) {
         alert('No file selected');
     }
 }
-
 
 //Click event handler for the button 'submit'
 //If there is not a file loaded => warn the user
@@ -432,7 +404,6 @@ submitButton.addEventListener('click', (e) => {
             patterns = "both";
         }
         
-
         // Seleccionar el radio adecuado según el valor de flatten
         if (document.getElementById("flatten1Radio").checked === true) {           
             flatten = "no";
@@ -464,7 +435,6 @@ function transformOntology(file, patterns, flatten){
             xmlErrors.style.display = 'none';
             newNamespaces.style.display = 'none';
             errorReport.style.display = 'none';
-            //warningReport.style.display = 'none';
             inputName.style.display = 'none';
             responseText.style.display = 'block';
             spinnerLoading.style.display = 'none';
@@ -501,7 +471,6 @@ function transformOntology(file, patterns, flatten){
             // Añadir el texto adicional debajo del texto principal
             responseText.appendChild(additionalText);
             
-
             downloadButton.style.backgroundColor = "#4CAF50"; // Cambiar color de fondo
             downloadButton.style.color = "white"; // Cambiar color del texto
             downloadButton.disabled = false; // Habilitar el botón si estaba deshabilitado
@@ -517,25 +486,6 @@ function transformOntology(file, patterns, flatten){
             loadTransformedOntology = true;
 
             var errors_keys = Object.keys(response['errors']);   
-            //var warnings_keys = Object.keys(response['warnings']);
-            //var namespaces_keys = Object.keys(response['new_namespaces']);
-
-            //xml file with highlight errors
-            //loadXmlErrorFile = response['xml_error_generated'];
-        
-            /*if (warnings_keys.length > 0){
-                warningReport.style.display = 'block';
-
-                baseBody.innerHTML = '';
-                ontologyUriBody.innerHTML = '';
-                restrictionsWBody.innerHTML = '';
-                
-                baseItem.style.display = 'none';
-                ontologyUriItem.style.displey = 'none';
-                restrictionsWItem.style.display = 'none';
-
-                warnings_keys.forEach((key) => classifyWarning(key, response['warnings'][key]));
-            }*/
 
             if (errors_keys.length > 0){
                 //The ontology has error that is neccesary to show to the user
@@ -582,25 +532,6 @@ function transformOntology(file, patterns, flatten){
                 
                 errors_keys.forEach((key) => classifyError(key, response['errors'][key]));
             }
-
-            /*if (namespaces_keys.length > 0){
-                errorReport.style.display = 'block';
-                textNamespace.innerHTML = '';
-                newNamespaces.style.display = 'block';
-
-                var unorderedList = document.createElement('ul');
-
-                for(let k = 0; k < namespaces_keys.length; k++){
-                    prefix = namespaces_keys[k]
-                    namespace = response['new_namespaces'][prefix]
-
-                    var listBullet = document.createElement('li');
-                    listBullet.innerHTML = '<b>' + prefix + ': </b>' + namespace;
-                    unorderedList.appendChild(listBullet);
-                }
-
-                textNamespace.appendChild(unorderedList);
-            }*/
         }    
     }
     fd.append('data', file);
@@ -608,21 +539,6 @@ function transformOntology(file, patterns, flatten){
     fd.append('flatten', flatten)
     xhr.send(fd);
 }
-
-
-
-/*function classifyWarning(key, value){
-
-    if (key == 'Restrictions'){
-        showError(restrictionsWItem, restrictionsWBody, value);
-    }
-    else if (key == 'Base'){
-        showError(baseItem, baseBody, value);
-    }
-    else if (key == 'Ontology'){
-        showError(ontologyUriItem, ontologyUriBody, value);
-    }
-}*/
 
 function classifyError(key, value){
     switch(key){
@@ -702,7 +618,7 @@ function showError(item, body, errors){
             }
             text += '<b>Shape id:</b> ' + errors[j]['shape_id'];
         }
-        //listBullet.innerHTML = '<b>Value:</b> '  + errors[j]['value'] + ', <b>Problem:</b> ' + errors[j]['message'] + ', <b>Shape id:</b> ' + errors[j]['shape_id'];
+       
         listBullet.innerHTML = text;
         unorderedList.appendChild(listBullet);
     }
@@ -719,25 +635,39 @@ function showSimpleError(item, body, errors){
     body.appendChild(unorderedList);
 }
 
-//Click event handler for the button 'download' in order to download the ttl file
+//Click event handler for the button 'download' in order to download the zip file
 //If there is not a transform ontology loaded => warn the user
 //If there is a transform ontology loaded => download it
 downloadButton.addEventListener('click', () => {
     downloadButton.classList.remove('border-blink');
-
     if (loadTransformedOntology) {
         var zipData = {
             'Errors.txt': response['errors'],
-            'Structure.csv': response['structure_csv'],
-            'Structure_term_type.txt': response['structure_type'],
-            'Structure_term_name.txt': response['structure_name'],
-            'Structure_term_inferred_type.txt': response['inferred_type'],
-            'Structure_term_inferred_blank_nodes.txt': response['inferred_blank_nodes'],
-            'Patterns_type.txt': response['patterns_type_txt'],
-            'Patterns_name.txt': response['patterns_name_txt'],
-            'Patterns_type.csv': response['patterns_type_csv'],
-            'Patterns_name.csv': response['patterns_name_csv']
+            'Structure.csv': response['structure_csv']
         };
+
+        // Añadir archivos según el valor de patterns
+        if (patterns === 'type') {
+            zipData['Patterns_type.txt'] = response['patterns_type_txt'];
+            zipData['Patterns_type.csv'] = response['patterns_type_csv'];
+            zipData['Structure_term_type.txt'] = response['structure_type'];
+            zipData['Structure_term_inferred_type.txt'] = response['inferred_type'];
+        } else if (patterns === 'name') {
+            zipData['Patterns_name.txt'] = response['patterns_name_txt'];
+            zipData['Patterns_name.csv'] = response['patterns_name_csv'];
+            zipData['Structure_term_name.txt'] = response['structure_name'];
+            zipData['Structure_term_inferred_blank_nodes.txt'] = response['inferred_blank_nodes'];
+        } else if (patterns === 'both') {
+            zipData['Patterns_type.txt'] = response['patterns_type_txt'];
+            zipData['Patterns_type.csv'] = response['patterns_type_csv'];
+            zipData['Patterns_name.txt'] = response['patterns_name_txt'];
+            zipData['Patterns_name.csv'] = response['patterns_name_csv'];
+            zipData['Structure_term_type.txt'] = response['structure_type'];
+            zipData['Structure_term_inferred_type.txt'] = response['inferred_type'];
+            zipData['Structure_term_name.txt'] = response['structure_name'];
+            zipData['Structure_term_inferred_blank_nodes.txt'] = response['inferred_blank_nodes'];
+        }
+
         downloadZipFile('patterns.zip', zipData);
     } else {
         alert('There is not loaded a transform ontology');
@@ -794,7 +724,7 @@ downloadButtonXmlErrorFile.addEventListener('click', ()=>{
 
 // Cuando el usuario haga clic en el botón, abrir la ventana modal
 btn.onclick = function() {
-  //modal.style.display = "block";
+
 }
 
 
@@ -982,8 +912,6 @@ document.getElementById('patterns-info').addEventListener('click', function() {
     patterns = document.getElementById("patterns").value;
     flatten = document.getElementById("flatten").value;
 
-    
-
     // Seleccionar el radio adecuado según el valor de patterns
     if (patterns === "type") {
         document.getElementById("pattern1Radio").checked = true;
@@ -1056,63 +984,16 @@ document.getElementById('patterns-info-icon').addEventListener('click', function
     infoPat.style.display = 'block';
 });
 
-
-
-
-
 // Asignar un evento de clic al botón "Volver atrás"
 goBackButton2.addEventListener("click", () => {
     // Ocultar la ventana modal
     document.getElementById("infoPatterns").style.display = "none";
 });
 
-
-
-
-
-
 document.getElementById('go-back3').addEventListener('click', function() {
 
     document.getElementById("infoFlatten").style.display = "none";
 });
-
-
-/*
-document.getElementById('modal-submit').addEventListener('click', function() {
-    // Obtener los valores seleccionados de Patterns y Flatten
-   
-    var patternsValue = document.getElementById('patterns').value;
-    var flattenValue = document.getElementById('flatten').value;
-    
-
-    // Mostrar la segunda ventana modal
-    openConfirmModal(patternsValue, flattenValue);
-
-    // Cerrar la primera ventana modal
-    document.getElementById('myModal').style.display = 'none';
-});
-
-function openConfirmModal(patterns, flatten) {
-    // Actualizar los valores en la segunda ventana modal
-    document.getElementById('patterns-value').innerText = patterns;
-    document.getElementById('flatten-value').innerText = flatten;
-    
-
-    // Mostrar la segunda ventana modal
-    //document.getElementById('confirmSelect').style.display = 'block';
-}
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    var arrows = document.querySelectorAll('.arrow-down');
-
-    arrows.forEach(function (arrow) {
-        arrow.addEventListener('click', function () {
-            this.classList.toggle('arrow-rotate'); // Agrega o quita la clase de rotación
-        });
-    });
-}); */
-
 
 function areFieldsFilled() {
     const patternsSelect = document.getElementById('patterns');
