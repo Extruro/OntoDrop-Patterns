@@ -15,7 +15,9 @@ You have several options to use this tool.
    
 ## How to execute the tool
 The tool can be executed via the command line as follows:<br>
+
 `app.py [-h] [-ontology ONTOLOGY_PATH] [-csv CSV_PATH] [-output OUTPUT_PATH] [-patterns {type,name,both}] [-flatten {yes,no}]`
+
 where:
 
 -ONTOLOGY_PATH is the path to a folder where the ontologies are going to be downloaded. The patterns are going to be identified using the ontologies stored in this folder<br>
