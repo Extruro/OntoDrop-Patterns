@@ -1,18 +1,15 @@
-**Este texto está en negrita**
-__Este texto también está en negrita__
+# OntoDrop identify and extract patterns from a collection of ontologies
+##Description
+The purpose of this website is to improve the usability of an ontological design pattern identification system. Despite the importance of patterns in the construction of ontologies, there is currently a great lack of open and accessible tools that facilitate the systematic identification and generation of these patterns. Our tool will facilitate the identification and extraction of patterns from a collection of ontologies.
 
-# How to use the tool
+## How to use the tool
 You have several options to use this tool.
 
-1. The web application:
-Go to https://chowlk.linkeddata.es/ web application.
-Download the Chowlk template.
-Complete version of the template: https://github.com/oeg-upm/chowlk_spec/blob/master/resources/chowlk-library-complete.xml
+### 1. The web application:
+  1.Go to OntoDrop Patterns web application.
+  2.Read the guide if this is your first time on the site.
+  3.Fill in the optional parameters in point 1) Choose options.
+  4.Prepare your ontologies in a .zip or .csv file.
+  5.Attach your ontologies in point 2)Upload your ontologies here.
+  6.Wait for the pattern extraction and download them.
 
-Lightweight version of the template: https://github.com/oeg-upm/chowlk_spec/blob/master/resources/chowlk-library-lightweight.xml
-
-In diagrams.net go to File > Open Library from > Device ...
-Select the library downloaded.
-Make your conceptualization using the blocks that will appear on the side bar.
-Download the diagram in xml format.
-Drag and drop your diagram in the Service dropping area and download your TTL file.
