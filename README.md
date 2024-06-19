@@ -1,5 +1,5 @@
 # OntoDrop identify and extract patterns from a collection of ontologies
-##Description
+## Description
 The purpose of this website is to improve the usability of an ontological design pattern identification system. Despite the importance of patterns in the construction of ontologies, there is currently a great lack of open and accessible tools that facilitate the systematic identification and generation of these patterns. Our tool will facilitate the identification and extraction of patterns from a collection of ontologies.
 
 ## How to use the tool
