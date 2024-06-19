@@ -5,11 +5,11 @@ The purpose of this website is to improve the usability of an ontological design
 ## How to use the tool
 You have several options to use this tool.
 
-### 1. The web application:
-  1.Go to OntoDrop Patterns web application.
-  2.Read the guide if this is your first time on the site.
-  3.Fill in the optional parameters in point 1) Choose options.
-  4.Prepare your ontologies in a .zip or .csv file.
-  5.Attach your ontologies in point 2)Upload your ontologies here.
-  6.Wait for the pattern extraction and download them.
+### The web application:
+  #### 1.Go to OntoDrop Patterns web application.
+  #### 2.Read the guide if this is your first time on the site.
+  #### 3.Fill in the optional parameters in point 1) Choose options.
+  #### 4.Prepare your ontologies in a .zip or .csv file.
+  #### 5.Attach your ontologies in point 2)Upload your ontologies here.
+  #### 6.Wait for the pattern extraction and download them.
 
