@@ -12,4 +12,9 @@ You have several options to use this tool.
    4. Prepare your ontologies in a .zip or .csv file.<br>
    5. Attach your ontologies in point 2)Upload your ontologies here.<br>
    6. Wait for the pattern extraction and download them.<br>
+   
+## How to execute the tool
+The tool can be executed via the command line as follows:
+app.py [-h] [-ontology ONTOLOGY_PATH] [-csv CSV_PATH] [-output OUTPUT_PATH] [-patterns {type,name,both}] [-flatten {yes,no}]
+
 
