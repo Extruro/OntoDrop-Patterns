@@ -13,6 +13,16 @@ You have several options to use this tool.
    5. Attach your ontologies in point 2)Upload your ontologies here.<br>
    6. Wait for the pattern extraction and download them.<br>
    
+## Preparing the local environment
+To run the tool locally in Windows we need to perform the following process:<br>
+   1. The first thing to do is to have Python, Virtualenv and Flask downloaded on your device.<br>
+   2. Declare the variable: $env:FLASK_APP = "run.py". Inside the following file: OntoDrop-Patterns\env\Scripts\activate.ps1.<br>
+   3. Activate the environment with the following command:<br>
+      `env\Scripts\activate.ps1`<br>
+   4. We launch the application with the command:<br>
+      `python -m flask run`<br>
+   5. Our application is up and running.<br>
+   
 ## How to execute the tool
 The tool can be executed via the command line as follows:<br>
 
