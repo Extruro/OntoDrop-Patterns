@@ -4,14 +4,6 @@ The purpose of this website is to improve the usability of an ontological design
 
 ## How to use the tool
 You have several options to use this tool.
-
-### The web application:
-   1. Go to OntoDrop Patterns web application.<br>
-   2. Read the guide if this is your first time on the site.<br>
-   3. Fill in the optional parameters in point 1) Choose options.<br>
-   4. Prepare your ontologies in a .zip or .csv file.<br>
-   5. Attach your ontologies in point 2)Upload your ontologies here.<br>
-   6. Wait for the pattern extraction and download them.<br>
    
 ## Preparing the local environment
 To run the tool locally in Windows we need to perform the following process:<br>
@@ -23,7 +15,7 @@ To run the tool locally in Windows we need to perform the following process:<br>
       `python -m flask run`<br>
    5. Our application is up and running.<br>
    
-## How to execute the tool
+## How to execute the tool locally
 The tool can be executed via the command line as follows:<br>
 
 `app.py [-h] [-ontology ONTOLOGY_PATH] [-csv CSV_PATH] [-output OUTPUT_PATH] [-patterns {type,name,both}] [-flatten {yes,no}]`
@@ -36,4 +28,10 @@ where:
 -PATTERNS is a flag to indicate if the patterns are going to be created from the type of the terms or from the name of the terms or from both. This parameter is optional. By default the patterns are going to be creaded just by the type of the terms.<br>
 -FLATTEN is a flag to indicate if the collections are going to be flattened if they only contain named classes. This parameter is optional. By default the collections are not going to be flattened.<br>
 
-
+## The web application:
+   1. Go to OntoDrop Patterns web application.<br>
+   2. Read the guide if this is your first time on the site.<br>
+   3. Fill in the optional parameters in point 1) Choose options.<br>
+   4. Prepare your ontologies in a .zip or .csv file.<br>
+   5. Attach your ontologies in point 2)Upload your ontologies here.<br>
+   6. Wait for the pattern extraction and download them.<br>
