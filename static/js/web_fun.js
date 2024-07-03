@@ -1009,3 +1009,25 @@ function areFieldsFilled() {
 
 
 
+// Evento beforeunload para detectar cuando el usuario intenta salir de la página
+window.addEventListener('beforeunload', function(event) {
+    // Obtener session_id desde sessionStorage
+    var session_id = sessionStorage.getItem('session_id');
+
+    // Verificar que session_id no sea null o undefined
+    if (session_id) {
+        // Enviar una solicitud al servidor para limpiar la sesión
+        navigator.sendBeacon('/cleanup', JSON.stringify({ session_id: session_id }));
+    }
+});
+
+
+
+
+
+
+
+
+
+
+
