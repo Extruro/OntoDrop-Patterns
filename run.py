@@ -230,11 +230,11 @@ def api():
 
         # Combinar el diccionario de rutas de archivos con el diccionario de contenidos de archivos
         files_dict_with_contents = {**files_dict, **file_contents}
-
+       
+        shutil.rmtree("data/sessions", ignore_errors=True)
         # Devolver el diccionario combinado como un objeto JSON
         return jsonify(files_dict_with_contents)
-    
-
+               
 
 if __name__ == "__main__":
-    app.run(debug=True)
+            app.run(debug=True)
